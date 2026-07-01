@@ -51,7 +51,7 @@ const faculty = defineCollection({
       name: z.string(),
       pronouns: z.string().optional(),
       headshot: image(),
-      title: z.string(),
+      titles: z.array(z.string()).min(1),
       department: z.string(),
       office: z.string().optional(),
       email: z.string().email().optional(),

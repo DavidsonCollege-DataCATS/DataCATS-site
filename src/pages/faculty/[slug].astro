@@ -28,7 +28,7 @@ const events = availabilityRaw
         {data.name}
         {data.pronouns && <span class="ml-2 text-base font-normal text-slate-500">({data.pronouns})</span>}
       </h1>
-      <p class="text-slate-500">{data.title}</p>
+      {data.titles.map((title) => <p class="text-slate-500">{title}</p>)}
       <p class="mt-1 font-medium text-slate-700">{data.department}</p>
       {data.office && <p class="mt-3 text-sm text-slate-600">Office: {data.office}</p>}
       {data.email && (
@@ -60,7 +60,7 @@ const events = availabilityRaw
 
       {data.coursework.length > 0 && (
         <section>
-          <h2 class="text-lg font-semibold text-slate-900">Courses taught</h2>
+          <h2 class="text-lg font-semibold text-slate-900">Courses I teach</h2>
           <ul class="mt-2 list-inside list-disc text-slate-700">
             {data.coursework.map((course) => <li>{course}</li>)}
           </ul>

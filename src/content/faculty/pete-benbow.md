@@ -2,7 +2,9 @@
 name: Pete Benbow
 pronouns: he/him
 headshot: ../../assets/faculty-headshots/animePete.jpg
-title: Director, DataCATS
+titles:
+  - James B. Duke Assistant Professor of the Practice in Data Science
+  - Director of Data CATS
 department: Data Science
 office: Watson 275
 email: pebenbow@davidson.edu
@@ -19,10 +21,6 @@ coursework:
 languages:
   - English
 homeCountry: United States
-experience:
-  - title: Director, DataCATS
-    organization: Davidson College
-    description: Oversees the DataCATS peer consulting program, training and supporting student consultants.
 meetingModes:
   - in-person
   - virtual
