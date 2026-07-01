@@ -8,7 +8,7 @@ majors:
   - Data Science
 minor: Computer Science (intended)
 skillAreas:
-  - Database Programming
+  - Databases
   - Data Engineering
   - Statistics
 tools:

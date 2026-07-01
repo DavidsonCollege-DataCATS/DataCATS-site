@@ -2,7 +2,7 @@
 import '../styles/global.css';
 import { Image } from 'astro:assets';
 import { ClientRouter } from 'astro:transitions';
-import davidsonLogo from '../assets/branding/davidson-left-aligned-lockup-black and white-RGB.png';
+import davidsonLogo from '../assets/branding/davidson-left-aligned-lockup-red and white-RGB.png';
 
 interface Props {
   title?: string;
@@ -33,10 +33,7 @@ const { title = 'Data CATS | Davidson College' } = Astro.props;
   <body class="flex min-h-screen flex-col bg-slate-50 text-slate-900">
     <header class="bg-davidson-red">
       <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href="/" class="flex items-center gap-3">
-          <Image src={davidsonLogo} alt="Davidson College" height={32} class="h-8 w-auto" />
-          <span class="text-lg font-bold tracking-tight text-white">Data CATS</span>
-        </a>
+        <a href="/" class="text-lg font-bold tracking-tight text-white">Data CATS</a>
         <div class="flex gap-6 text-sm font-medium text-white">
           <a href="/" class="hover:text-cool-gray-1">Consultants</a>
           <a href="/calendar" class="hover:text-cool-gray-1">Calendar</a>
@@ -47,8 +44,9 @@ const { title = 'Data CATS | Davidson College' } = Astro.props;
       <slot />
     </main>
     <footer class="bg-davidson-black">
-      <div class="mx-auto max-w-6xl px-6 py-6 text-center text-sm text-white">
-        Site built and managed by Prof. Pete Benbow and the Data CATS team.
+      <div class="mx-auto flex max-w-6xl flex-col items-center gap-3 px-6 py-6 text-center text-sm text-white">
+        <Image src={davidsonLogo} alt="Davidson College" height={32} class="h-8 w-auto" />
+        <p>Site built and managed by Prof. Pete Benbow and the Data CATS team.</p>
       </div>
     </footer>
   </body>
