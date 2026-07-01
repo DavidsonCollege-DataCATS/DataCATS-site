@@ -14,6 +14,7 @@ skills:
   - Power BI
   - Excel
   - Python
+  - Databricks
 coursework:
   - "CSC 110: Data Science & Society"
   - "DAT 153: Database Programming"

@@ -123,6 +123,13 @@
           <h3 class="font-semibold text-slate-900">{consultant.name}</h3>
           <p class="text-sm text-slate-500">Class of {consultant.classYear}</p>
           <p class="mt-1 text-sm text-slate-700">{consultant.majorMinorLabel}</p>
+          {#if consultant.skills.length > 0}
+            <div class="mt-2 flex flex-wrap gap-1.5">
+              {#each consultant.skills as skill}
+                <span class="rounded-full bg-davidson-red/10 px-2 py-0.5 text-xs font-medium text-davidson-red">{skill}</span>
+              {/each}
+            </div>
+          {/if}
         </div>
       </a>
     {:else}

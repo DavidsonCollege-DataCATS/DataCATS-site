@@ -35,6 +35,7 @@ const faculty = await Promise.all(
       name: entry.data.name,
       headshotSrc: optimized.src,
       department: entry.data.department,
+      skills: entry.data.skills,
     };
   }),
 );
@@ -68,6 +69,13 @@ const faculty = await Promise.all(
             <div class="p-4">
               <h3 class="font-semibold text-slate-900">{person.name}</h3>
               <p class="text-sm text-slate-700">{person.department}</p>
+              {person.skills.length > 0 && (
+                <div class="mt-2 flex flex-wrap gap-1.5">
+                  {person.skills.map((skill) => (
+                    <span class="rounded-full bg-davidson-red/10 px-2 py-0.5 text-xs font-medium text-davidson-red">{skill}</span>
+                  ))}
+                </div>
+              )}
             </div>
           </a>
         ))}
