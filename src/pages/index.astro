@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+import { getImage } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import ConsultantGrid from '../components/ConsultantGrid.svelte';
+import { majorMinorLabel, allMajors } from '../lib/consultant';
+
+const entries = (await getCollection('consultants')).filter((e) => e.data.active);
+
+const consultants = await Promise.all(
+  entries.map(async (entry) => {
+    const optimized = await getImage({ src: entry.data.headshot, width: 400, height: 400 });
+    return {
+      slug: entry.id,
+      name: entry.data.name,
+      headshotSrc: optimized.src,
+      classYear: entry.data.classYear,
+      majorMinorLabel: majorMinorLabel(entry.data),
+      majorsForFilter: allMajors(entry.data),
+      skills: entry.data.skills,
+      coursework: entry.data.coursework,
+      languages: entry.data.languages,
+    };
+  }),
+);
+
+consultants.sort((a, b) => a.name.localeCompare(b.name));
+---
+
+<Layout>
+  <div class="mb-8">
+    <h1 class="text-3xl font-bold tracking-tight text-slate-900">Meet the DataCATS</h1>
+    <p class="mt-2 max-w-2xl text-slate-600">
+      Filter by skill, major, coursework, or language to find the consultant best suited to help with your project.
+    </p>
+  </div>
+  <ConsultantGrid client:load consultants={consultants} />
+</Layout>

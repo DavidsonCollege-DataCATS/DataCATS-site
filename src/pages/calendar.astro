@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import TeamCalendar from '../components/TeamCalendar.svelte';
+import { allMajors } from '../lib/consultant';
+import availabilityRaw from '../data/availability.json';
+
+const entries = (await getCollection('consultants')).filter((e) => e.data.active);
+
+const consultants = entries.map((entry) => ({
+  slug: entry.id,
+  name: entry.data.name,
+  skills: entry.data.skills,
+  majorsForFilter: allMajors(entry.data),
+  coursework: entry.data.coursework,
+  languages: entry.data.languages,
+}));
+
+const nameBySlug = new Map(consultants.map((c) => [c.slug, c.name]));
+const events = availabilityRaw.map((e) => ({ ...e, name: nameBySlug.get(e.slug) ?? e.slug }));
+---
+
+<Layout title="Team Calendar | DataCATS">
+  <div class="mb-8">
+    <h1 class="text-3xl font-bold tracking-tight text-slate-900">Team Calendar</h1>
+    <p class="mt-2 max-w-2xl text-slate-600">
+      Browse upcoming office hours and appointment blocks across the whole DataCATS team. Filter by skill, major,
+      coursework, language, or an individual consultant.
+    </p>
+  </div>
+  <TeamCalendar client:load {events} {consultants} />
+</Layout>
