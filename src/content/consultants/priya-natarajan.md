@@ -9,6 +9,7 @@ skillAreas:
   - Programming Fundamentals
 tools:
   - Python
+  - R
   - Excel
 coursework:
   - "CSC 121: Programming & Problem Solving"

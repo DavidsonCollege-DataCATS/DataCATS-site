@@ -1,6 +1,6 @@
-# DataCATS Site
+# Data CATS Site
 
-The Davidson College DataCATS consultant roster, filterable directory, team calendar, and appointment booking site.
+The Davidson College Data CATS consultant roster, filterable directory, team calendar, and appointment booking site.
 
 ## Stack
 

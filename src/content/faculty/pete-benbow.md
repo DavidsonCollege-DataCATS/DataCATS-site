@@ -10,7 +10,7 @@ office: Watson 275
 email: pebenbow@davidson.edu
 skillAreas:
   - Data Engineering
-  - Database Programming
+  - Databases
   - Data Analysis
 tools:
   - SQL
@@ -19,6 +19,7 @@ tools:
   - Excel
   - Python
   - Databricks
+  - Quarto
 coursework:
   - "CSC 110: Data Science & Society"
   - "DAT 153: Database Programming"
