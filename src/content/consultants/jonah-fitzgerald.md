@@ -16,10 +16,10 @@ tools:
   - SQL
 coursework:
   - course: "MAT 105: Introduction to Statistics"
-    professor: Dr. Anna Kowalski
+    instructor: Dr. Anna Kowalski
     term: Fall 2023
   - course: "DAT 205: Statistical Linear Models"
-    professor: Dr. Laura Whitfield
+    instructor: Dr. Laura Whitfield
     term: Spring 2025
 languages:
   - English

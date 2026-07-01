@@ -14,7 +14,7 @@ tools:
   - SQL
 coursework:
   - course: "CSC 121: Programming & Problem Solving"
-    professor: Dr. Priya Sharma
+    instructor: Dr. Priya Sharma
     term: Fall 2025
 languages:
   - English

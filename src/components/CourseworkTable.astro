@@ -1,6 +1,6 @@
 ---
 interface Props {
-  coursework: { course: string; professor?: string; term?: string }[];
+  coursework: { course: string; instructor?: string; term?: string }[];
 }
 
 const { coursework } = Astro.props;
@@ -12,7 +12,7 @@ const { coursework } = Astro.props;
       <thead>
         <tr class="border-b border-slate-200 text-xs font-semibold uppercase tracking-wide text-slate-500">
           <th class="py-2 pr-4">Course</th>
-          <th class="py-2 pr-4">Professor</th>
+          <th class="py-2 pr-4">Instructor</th>
           <th class="py-2">Term</th>
         </tr>
       </thead>
@@ -20,7 +20,7 @@ const { coursework } = Astro.props;
         {coursework.map((cw) => (
           <tr class="border-b border-slate-100 last:border-0 hover:bg-slate-50">
             <td class="py-2 pr-4 font-medium text-slate-900">{cw.course}</td>
-            <td class="py-2 pr-4 text-slate-600">{cw.professor ?? '—'}</td>
+            <td class="py-2 pr-4 text-slate-600">{cw.instructor ?? '—'}</td>
             <td class="py-2">
               {cw.term && (
                 <span class="rounded-full bg-lake-blue/10 px-2 py-0.5 text-xs font-medium text-lake-blue">{cw.term}</span>
@@ -35,9 +35,9 @@ const { coursework } = Astro.props;
       {coursework.map((cw) => (
         <li class="rounded-lg border border-slate-200 p-3">
           <p class="font-medium text-slate-900">{cw.course}</p>
-          {(cw.professor || cw.term) && (
+          {(cw.instructor || cw.term) && (
             <p class="mt-1 flex items-center gap-2 text-sm text-slate-600">
-              {cw.professor && <span>{cw.professor}</span>}
+              {cw.instructor && <span>{cw.instructor}</span>}
               {cw.term && (
                 <span class="rounded-full bg-lake-blue/10 px-2 py-0.5 text-xs font-medium text-lake-blue">{cw.term}</span>
               )}

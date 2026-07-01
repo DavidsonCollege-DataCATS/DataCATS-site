@@ -28,13 +28,13 @@ const consultants = defineCollection({
         skillAreas: z.array(z.string()).default([]),
         // Specific languages/tools (e.g. "Python", "SQL", "Power BI").
         tools: z.array(z.string()).default([]),
-        // Courses the consultant has taken. professor/term are optional so an entry can be
+        // Courses the consultant has taken. instructor/term are optional so an entry can be
         // added before those details are known.
         coursework: z
           .array(
             z.object({
               course: z.string(),
-              professor: z.string().optional(),
+              instructor: z.string().optional(),
               term: z.string().optional(),
             }),
           )

@@ -16,10 +16,10 @@ tools:
   - Excel
 coursework:
   - course: "CSC 110: Data Science & Society"
-    professor: Dr. Thomas Reyes
+    instructor: Dr. Thomas Reyes
     term: Spring 2025
   - course: "CSC 362: Data Visualization"
-    professor: Dr. David Okafor
+    instructor: Dr. David Okafor
     term: Fall 2025
 languages:
   - English

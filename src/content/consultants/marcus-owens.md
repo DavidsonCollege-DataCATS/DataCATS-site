@@ -18,13 +18,13 @@ tools:
   - Tableau
 coursework:
   - course: "MAT 210: Mathematical Modeling"
-    professor: Dr. Michael Chen
+    instructor: Dr. Michael Chen
     term: Fall 2023
   - course: "DAT 205: Statistical Linear Models"
-    professor: Dr. Laura Whitfield
+    instructor: Dr. Laura Whitfield
     term: Spring 2025
   - course: "DAT 305: Bayesian Statistics"
-    professor: Dr. James O'Connor
+    instructor: Dr. James O'Connor
     term: Fall 2025
 languages:
   - English

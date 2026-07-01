@@ -18,26 +18,23 @@ tools:
   - Java
 coursework:
   - course: "CSC 121: Programming & Problem Solving"
-    professor: P Sharma
+    instructor: P Sharma
     term: Fall 2022
   - course: "CSC 221: Data Structures"
-    professor: P Sharma
+    instructor: K Williams
     term: Fall 2025
   - course: "CSC 362: Data Visualization"
-    professor: K Williams
+    instructor: K Williams
     term: Spring 2026
   - course: "DAT 153: Database Programming"
-    professor: P Benbow
+    instructor: P Benbow
     term: Fall 2025
   - course: "DAT 205: Statistical Linear Models"
-    professor: K Wang
+    instructor: K Wang
     term: Spring 2026
   - course: "MAT 105: Introduction to Statistics"
-    professor: K Wang
+    instructor: K Wang
     term: Fall 2025
-  - course: "SOC 391: Survey Research Methods"
-    professor: P Sharma
-    term: Spring 2026
 languages:
   - English
   - Korean
@@ -47,8 +44,4 @@ experience:
     organization: Mulliss Center for Civic Engagement at Davidson, Department of Data Science
     dates: Summer 2026
     description: Created a backend data warehouse to store, clean, and load relevant data, including the Census ACS data, into a custom website for the North Mecklenburg Community.
-  - title: Military Cook Squad Leader
-    organization: Culinary Department of The First Division 58 Artillery Battalion
-    dates: 2024-2025
-    description: Led a squad of six military cooks/soldiers, preparing three meals a day for 150 soldiers, including food supply, storage, and pre-preparation. Conducted data surveys for preferred menus in the battalion.
 ---

@@ -10,7 +10,7 @@
     majorsForFilter: string[],
     skillAreas: string[],
     tools: string[],
-    coursework: {course: string, professor?: string, term?: string}[],
+    coursework: {course: string, instructor?: string, term?: string}[],
     languages: string[],
   }[]} */
   export let consultants = [];

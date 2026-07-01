@@ -9,7 +9,7 @@
 
   /** @type {{slug: string, name: string, title: string, start: string, end: string, mode: string, status: string}[]} */
   export let events = [];
-  /** @type {{slug: string, name: string, skillAreas: string[], tools: string[], majorsForFilter: string[], coursework: {course: string, professor?: string, term?: string}[], languages: string[]}[]} */
+  /** @type {{slug: string, name: string, skillAreas: string[], tools: string[], majorsForFilter: string[], coursework: {course: string, instructor?: string, term?: string}[], languages: string[]}[]} */
   export let consultants = [];
   /** Called with the clicked event when it's an open slot. Only used for individual (single-consultant) calendars. */
   export let onSlotClick = null;

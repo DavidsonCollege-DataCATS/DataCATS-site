@@ -17,13 +17,13 @@ tools:
   - Excel
 coursework:
   - course: "CSC 221: Data Structures"
-    professor: Dr. Elena Martinez
+    instructor: Dr. Elena Martinez
     term: Spring 2025
   - course: "CSC 321: Analysis of Algorithms"
-    professor: Dr. Raj Patel
+    instructor: Dr. Raj Patel
     term: Fall 2025
   - course: "DAT 153: Database Programming"
-    professor: Dr. Sarah Kim
+    instructor: Dr. Sarah Kim
     term: Spring 2026
 languages:
   - English

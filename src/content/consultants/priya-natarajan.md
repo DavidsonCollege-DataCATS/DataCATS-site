@@ -14,10 +14,10 @@ tools:
   - Excel
 coursework:
   - course: "CSC 121: Programming & Problem Solving"
-    professor: Dr. Priya Sharma
+    instructor: Dr. Priya Sharma
     term: Fall 2025
   - course: "CSC 110: Data Science & Society"
-    professor: Dr. Thomas Reyes
+    instructor: Dr. Thomas Reyes
     term: Spring 2026
 languages:
   - English
