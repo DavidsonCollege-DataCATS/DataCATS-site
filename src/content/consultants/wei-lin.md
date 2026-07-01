@@ -1,5 +1,6 @@
 ---
 name: Wei Lin
+pronouns: he/him
 headshot: ../../assets/headshots/wei-lin.svg
 classYear: 2028
 intendedMajors:
@@ -9,7 +10,7 @@ skills:
   - Python
   - SQL
 coursework:
-  - Intro to Programming
+  - "CSC 121: Programming & Problem Solving"
   - Calculus II
 languages:
   - English

@@ -1,5 +1,6 @@
 ---
 name: Priya Natarajan
+pronouns: she/her
 headshot: ../../assets/headshots/priya-natarajan.svg
 classYear: 2028
 intendedMajors:
@@ -8,8 +9,8 @@ skills:
   - Python
   - Excel
 coursework:
-  - Intro to Programming
-  - Intro to Data Science
+  - "CSC 121: Programming & Problem Solving"
+  - "CSC 110: Data Science & Society"
 languages:
   - English
   - Hindi

@@ -1,5 +1,6 @@
 ---
 name: Jonah Fitzgerald
+pronouns: he/him
 headshot: ../../assets/headshots/jonah-fitzgerald.svg
 classYear: 2026
 majors:
@@ -10,8 +11,8 @@ skills:
   - Excel
   - SQL
 coursework:
-  - Applied Regression
-  - Time Series Analysis
+  - "MAT 105: Introduction to Statistics"
+  - "DAT 205: Statistical Linear Models"
   - Microeconomics
 languages:
   - English

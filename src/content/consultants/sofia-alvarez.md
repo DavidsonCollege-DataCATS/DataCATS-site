@@ -1,5 +1,6 @@
 ---
 name: Sofia Alvarez
+pronouns: she/her
 headshot: ../../assets/headshots/sofia-alvarez.svg
 classYear: 2027
 majors:
@@ -10,8 +11,8 @@ skills:
   - R
   - Excel
 coursework:
-  - Bioinformatics
-  - Intro to Data Science
+  - "CSC 110: Data Science & Society"
+  - "CSC 362: Data Visualization"
   - Genetics
 languages:
   - English

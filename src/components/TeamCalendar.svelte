@@ -31,19 +31,27 @@
   const allCourses = unique(consultants.flatMap((c) => c.coursework));
   const allLanguages = unique(consultants.flatMap((c) => c.languages));
 
-  function consultantMatches(slug) {
-    const c = consultants.find((x) => x.slug === slug);
-    if (!c) return true;
-    if (tutorFilter && slug !== tutorFilter) return false;
-    if (skillFilter && !c.skills.includes(skillFilter)) return false;
-    if (majorFilter && !c.majorsForFilter.includes(majorFilter)) return false;
-    if (courseFilter && !c.coursework.includes(courseFilter)) return false;
-    if (languageFilter && !c.languages.includes(languageFilter)) return false;
-    return true;
+  function resetFilters() {
+    tutorFilter = '';
+    skillFilter = '';
+    majorFilter = '';
+    courseFilter = '';
+    languageFilter = '';
   }
 
+  // Filters are inlined directly in this statement (rather than called through a helper)
+  // so Svelte's dependency tracking picks up tutorFilter/skillFilter/etc. and re-runs on change.
   $: visibleEvents = events
-    .filter((e) => consultantMatches(e.slug))
+    .filter((e) => {
+      const c = consultants.find((x) => x.slug === e.slug);
+      if (!c) return true;
+      if (tutorFilter && e.slug !== tutorFilter) return false;
+      if (skillFilter && !c.skills.includes(skillFilter)) return false;
+      if (majorFilter && !c.majorsForFilter.includes(majorFilter)) return false;
+      if (courseFilter && !c.coursework.includes(courseFilter)) return false;
+      if (languageFilter && !c.languages.includes(languageFilter)) return false;
+      return true;
+    })
     .map((e) => ({
       id: `${e.slug}-${e.start}`,
       title: consultants.length > 1 ? `${e.name} — ${e.title}` : e.title,
@@ -70,6 +78,7 @@
         right: 'timeGridWeek,dayGridMonth,listWeek',
       },
       height: 'auto',
+      slotMinTime: '08:00:00',
       events: visibleEvents,
       eventClick: (info) => {
         const { status } = info.event.extendedProps;
@@ -138,6 +147,12 @@
           {/each}
         </select>
       </div>
+      <button
+        on:click={resetFilters}
+        class="rounded-md border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100"
+      >
+        Reset
+      </button>
     </div>
     <div class="flex gap-4 text-xs text-slate-500">
       <span class="flex items-center gap-1"><span class="h-2.5 w-2.5 rounded-full bg-green-600"></span> In-person</span>

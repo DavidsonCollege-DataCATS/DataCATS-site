@@ -7,6 +7,7 @@ const consultants = defineCollection({
     z
       .object({
         name: z.string(),
+        pronouns: z.string().optional(),
         headshot: image(),
         classYear: z.number().int(),
         // Declared majors take precedence; if empty, the student has intended majors instead.

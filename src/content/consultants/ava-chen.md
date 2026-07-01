@@ -1,5 +1,6 @@
 ---
 name: Ava Chen
+pronouns: she/her
 headshot: ../../assets/headshots/ava-chen.svg
 classYear: 2027
 majors:
@@ -11,9 +12,9 @@ skills:
   - Power BI
   - Excel
 coursework:
-  - Data Structures & Algorithms
-  - Econometrics
-  - Database Systems
+  - "CSC 221: Data Structures"
+  - "CSC 321: Analysis of Algorithms"
+  - "DAT 153: Database Programming"
 languages:
   - English
   - Mandarin

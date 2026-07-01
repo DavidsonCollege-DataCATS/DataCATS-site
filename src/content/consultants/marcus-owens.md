@@ -1,5 +1,6 @@
 ---
 name: Marcus Owens
+pronouns: he/him
 headshot: ../../assets/headshots/marcus-owens.svg
 classYear: 2026
 majors:
@@ -11,9 +12,9 @@ skills:
   - SQL
   - Tableau
 coursework:
-  - Statistical Modeling
-  - Machine Learning
-  - Linear Algebra
+  - "MAT 210: Mathematical Modeling"
+  - "DAT 205: Statistical Linear Models"
+  - "DAT 305: Bayesian Statistics"
 languages:
   - English
 homeCountry: United States
