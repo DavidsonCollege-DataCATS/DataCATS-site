@@ -26,7 +26,12 @@ const events = availabilityRaw
 <Layout title={`${data.name} | Data CATS`}>
   <div class="grid gap-8 md:grid-cols-[280px_1fr]">
     <div>
-      <img src={optimized.src} alt={data.name} class="aspect-square w-full rounded-xl object-cover shadow-sm" />
+      <img
+        src={optimized.src}
+        alt={data.name}
+        class="aspect-square w-full rounded-xl object-cover shadow-sm"
+        style={`view-transition-name: headshot-${entry.id}`}
+      />
       <h1 class="mt-4 text-2xl font-bold text-slate-900">
         {data.name}
         {data.pronouns && <span class="ml-2 text-base font-normal text-slate-500">({data.pronouns})</span>}

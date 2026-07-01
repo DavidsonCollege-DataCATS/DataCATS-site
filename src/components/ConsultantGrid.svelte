@@ -118,6 +118,7 @@
             src={consultant.headshotSrc}
             alt={consultant.name}
             class="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+            style={`view-transition-name: headshot-${consultant.slug}`}
           />
         </div>
         <div class="p-4">

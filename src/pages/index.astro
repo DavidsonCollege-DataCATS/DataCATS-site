@@ -47,8 +47,7 @@ const faculty = await Promise.all(
   <div class="mb-8">
     <h1 class="text-3xl font-bold tracking-tight text-slate-900">Meet the Data CATS</h1>
     <p class="mt-2 max-w-2xl text-slate-600">
-      Filter by skill area, tool, major, coursework, or language to find the consultant best suited to help with your
-      project.
+      Browse our consultants below, and click to view their profiles and availability.
     </p>
   </div>
   <ConsultantGrid client:load consultants={consultants} />
@@ -67,6 +66,7 @@ const faculty = await Promise.all(
                 src={person.headshotSrc}
                 alt={person.name}
                 class="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+                style={`view-transition-name: headshot-${person.slug}`}
               />
             </div>
             <div class="p-4">

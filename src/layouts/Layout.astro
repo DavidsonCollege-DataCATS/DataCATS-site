@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { Image } from 'astro:assets';
+import { ClientRouter } from 'astro:transitions';
 import davidsonLogo from '../assets/branding/left-aligned-lockup-red and black.png';
 
 interface Props {
@@ -17,6 +18,17 @@ const { title = 'Data CATS | Davidson College' } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <ClientRouter />
+    <script>
+      // "Previous"/"Next" consultant links carry data-direction so the swipe
+      // animation goes the way the user actually navigated, not always forward.
+      document.addEventListener('astro:before-preparation', (event) => {
+        const source = event.sourceElement;
+        if (source instanceof HTMLElement && source.dataset.direction) {
+          event.direction = source.dataset.direction === 'prev' ? 'back' : 'forward';
+        }
+      });
+    </script>
   </head>
   <body class="min-h-screen bg-slate-50 text-slate-900">
     <header class="border-b border-slate-200 bg-white">
@@ -31,7 +43,7 @@ const { title = 'Data CATS | Davidson College' } = Astro.props;
         </div>
       </nav>
     </header>
-    <main class="mx-auto max-w-6xl px-6 py-10">
+    <main class="mx-auto max-w-6xl px-6 py-10" transition:animate="slide">
       <slot />
     </main>
   </body>
