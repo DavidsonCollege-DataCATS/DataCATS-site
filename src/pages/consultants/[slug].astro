@@ -91,7 +91,8 @@ const events = availabilityRaw
           <ul class="mt-2 space-y-3">
             {data.experience.map((job) => (
               <li>
-                <p class="font-medium text-slate-900">{job.title} — {job.organization}</p>
+                <p class="font-medium text-slate-900">{job.title}</p>
+                <p class="text-slate-700">{job.organization}</p>
                 {job.dates && <p class="text-sm text-slate-500">{job.dates}</p>}
                 {job.description && <p class="text-sm text-slate-600">{job.description}</p>}
               </li>

@@ -18,7 +18,7 @@ tools:
   - Java
 coursework:
   - course: "CSC 121: Programming & Problem Solving"
-    instructor: P Sharma
+    instructor: C Nemitz
     term: Fall 2022
   - course: "CSC 221: Data Structures"
     instructor: K Williams
