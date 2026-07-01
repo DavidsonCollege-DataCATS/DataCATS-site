@@ -2,6 +2,7 @@
 name: Marcus Owens
 pronouns: he/him
 headshot: ../../assets/headshots/marcus-owens.svg
+email: maowens@davidson.edu
 classYear: 2026
 majors:
   - Mathematics

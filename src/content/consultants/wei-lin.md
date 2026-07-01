@@ -2,6 +2,7 @@
 name: Wei Lin
 pronouns: he/him
 headshot: ../../assets/headshots/wei-lin.svg
+email: welin@davidson.edu
 classYear: 2028
 intendedMajors:
   - Computer Science

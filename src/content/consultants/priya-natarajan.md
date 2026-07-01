@@ -2,6 +2,7 @@
 name: Priya Natarajan
 pronouns: she/her
 headshot: ../../assets/headshots/priya-natarajan.svg
+email: prnatarajan@davidson.edu
 classYear: 2028
 intendedMajors:
   - Computer Science

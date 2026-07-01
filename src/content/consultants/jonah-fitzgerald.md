@@ -2,6 +2,7 @@
 name: Jonah Fitzgerald
 pronouns: he/him
 headshot: ../../assets/headshots/jonah-fitzgerald.svg
+email: jofitzgerald@davidson.edu
 classYear: 2026
 majors:
   - Economics

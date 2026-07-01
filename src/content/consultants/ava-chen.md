@@ -2,6 +2,7 @@
 name: Ava Chen
 pronouns: she/her
 headshot: ../../assets/headshots/ava-chen.svg
+email: avchen@davidson.edu
 classYear: 2027
 majors:
   - Computer Science

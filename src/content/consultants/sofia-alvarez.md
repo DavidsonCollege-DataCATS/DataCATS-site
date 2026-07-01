@@ -2,6 +2,7 @@
 name: Sofia Alvarez
 pronouns: she/her
 headshot: ../../assets/headshots/sofia-alvarez.svg
+email: soalvarez@davidson.edu
 classYear: 2027
 majors:
   - Biology

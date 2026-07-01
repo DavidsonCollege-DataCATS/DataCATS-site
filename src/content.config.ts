@@ -18,6 +18,7 @@ const consultants = defineCollection({
         name: z.string(),
         pronouns: z.string().optional(),
         headshot: image(),
+        email: z.string().email(),
         classYear: z.number().int(),
         // Declared majors take precedence; if empty, the student has intended majors instead.
         majors: z.array(z.string()).max(2).default([]),
