@@ -1,8 +1,10 @@
 ---
 import { getCollection, render } from 'astro:content';
 import { getImage } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
 import Layout from '../../layouts/Layout.astro';
 import ConsultantSchedule from '../../components/ConsultantSchedule.svelte';
+import SocialLinks from '../../components/SocialLinks.astro';
 import { majorMinorLabel } from '../../lib/consultant';
 import availabilityRaw from '../../data/availability.json';
 
@@ -32,8 +34,12 @@ const events = availabilityRaw
       <p class="text-slate-500">Class of {data.classYear}</p>
       <p class="mt-1 font-medium text-slate-700">{majorMinorLabel(data)}</p>
       <p class="mt-3 text-sm text-slate-600">Home country: {data.homeCountry}</p>
-      <p class="mt-1 text-sm text-slate-600">Languages: {data.languages.join(', ')}</p>
+      <p class="mt-1 flex items-center gap-1.5 text-sm text-slate-600">
+        <Icon name="heroicons:chat-bubble-left-right" class="h-4 w-4 text-slate-400" />
+        {data.languages.join(', ')}
+      </p>
       <p class="mt-1 text-sm text-slate-600">Meets: {data.meetingModes.join(' & ')}</p>
+      <SocialLinks socials={data.socials} name={data.name} />
     </div>
 
     <div class="space-y-8">

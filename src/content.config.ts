@@ -1,6 +1,15 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
+const socialsSchema = z
+  .object({
+    linkedin: z.string().url().optional(),
+    github: z.string().url().optional(),
+    instagram: z.string().url().optional(),
+    website: z.string().url().optional(),
+  })
+  .default({});
+
 const consultants = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/consultants' }),
   schema: ({ image }) =>
@@ -18,6 +27,7 @@ const consultants = defineCollection({
         coursework: z.array(z.string()).default([]),
         languages: z.array(z.string()).default([]),
         homeCountry: z.string(),
+        socials: socialsSchema,
         experience: z
           .array(
             z.object({
@@ -59,6 +69,7 @@ const faculty = defineCollection({
       coursework: z.array(z.string()).default([]),
       languages: z.array(z.string()).default([]),
       homeCountry: z.string(),
+      socials: socialsSchema,
       experience: z
         .array(
           z.object({

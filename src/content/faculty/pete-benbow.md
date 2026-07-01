@@ -21,10 +21,14 @@ coursework:
 languages:
   - English
 homeCountry: United States
+socials:
+  linkedin: https://www.linkedin.com/in/pdbenbow/
+  github: https://github.com/pebenbow
+  website: https://petebenbow.com
 meetingModes:
   - in-person
   - virtual
 zoomSchedulerUrl: https://davidson.zoom.us/zbook/pete-benbow/data-cats-office-hours
 ---
 
-Pete directs the DataCATS program, connecting students across the curriculum with peer consultants for help on data-driven coursework and projects. He's also available for office hours and appointments.
+I'm the James B. Duke Assistant Professor of the Practice in Data Science, and Director of Data CATS! I graduated from Davidson in 2007 with a degree in Political Science, and worked in data engineering and analytics professionally for over a decade before I began teaching.

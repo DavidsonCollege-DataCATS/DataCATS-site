@@ -18,8 +18,11 @@
     "@fullcalendar/interaction": "^6.1.21",
     "@fullcalendar/list": "^6.1.21",
     "@fullcalendar/timegrid": "^6.1.21",
+    "@iconify-json/heroicons": "^1.2.3",
+    "@iconify-json/simple-icons": "^1.2.88",
     "@tailwindcss/vite": "^4.3.2",
     "astro": "^7.0.4",
+    "astro-icon": "^1.1.5",
     "svelte": "^5.56.4",
     "tailwindcss": "^4.3.2",
     "typescript": "^6.0.3"

@@ -34,7 +34,6 @@ const faculty = await Promise.all(
       slug: entry.id,
       name: entry.data.name,
       headshotSrc: optimized.src,
-      titles: entry.data.titles,
       department: entry.data.department,
     };
   }),
@@ -68,8 +67,7 @@ const faculty = await Promise.all(
             </div>
             <div class="p-4">
               <h3 class="font-semibold text-slate-900">{person.name}</h3>
-              <p class="text-sm text-slate-500">{person.titles[0]}</p>
-              <p class="mt-1 text-sm text-slate-700">{person.department}</p>
+              <p class="text-sm text-slate-700">{person.department}</p>
             </div>
           </a>
         ))}
