@@ -6,7 +6,10 @@ classYear: 2026
 majors:
   - Economics
 minor: Applied Mathematics & Statistics
-skills:
+skillAreas:
+  - Statistics
+  - Forecasting
+tools:
   - R
   - Excel
   - SQL

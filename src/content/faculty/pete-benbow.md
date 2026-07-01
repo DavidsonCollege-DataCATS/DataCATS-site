@@ -8,7 +8,11 @@ titles:
 department: Data Science
 office: Watson 275
 email: pebenbow@davidson.edu
-skills:
+skillAreas:
+  - Data Engineering
+  - Database Programming
+  - Data Analysis
+tools:
   - SQL
   - R
   - Power BI

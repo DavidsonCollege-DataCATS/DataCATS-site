@@ -23,7 +23,10 @@ const consultants = defineCollection({
         majors: z.array(z.string()).max(2).default([]),
         intendedMajors: z.array(z.string()).max(2).default([]),
         minor: z.string().optional(),
-        skills: z.array(z.string()).default([]),
+        // General competencies (e.g. "Machine Learning", "Data Visualization").
+        skillAreas: z.array(z.string()).default([]),
+        // Specific languages/tools (e.g. "Python", "SQL", "Power BI").
+        tools: z.array(z.string()).default([]),
         coursework: z.array(z.string()).default([]),
         languages: z.array(z.string()).default([]),
         homeCountry: z.string(),
@@ -65,7 +68,8 @@ const faculty = defineCollection({
       department: z.string(),
       office: z.string().optional(),
       email: z.string().email().optional(),
-      skills: z.array(z.string()).default([]),
+      skillAreas: z.array(z.string()).default([]),
+      tools: z.array(z.string()).default([]),
       coursework: z.array(z.string()).default([]),
       languages: z.array(z.string()).default([]),
       homeCountry: z.string(),

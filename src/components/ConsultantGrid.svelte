@@ -8,14 +8,16 @@
     classYear: number,
     majorMinorLabel: string,
     majorsForFilter: string[],
-    skills: string[],
+    skillAreas: string[],
+    tools: string[],
     coursework: string[],
     languages: string[],
   }[]} */
   export let consultants = [];
 
   let query = '';
-  let skillFilter = '';
+  let skillAreaFilter = '';
+  let toolFilter = '';
   let majorFilter = '';
   let courseFilter = '';
   let languageFilter = '';
@@ -24,23 +26,26 @@
     return Array.from(new Set(values)).sort();
   }
 
-  const allSkills = unique(consultants.flatMap((c) => c.skills));
+  const allSkillAreas = unique(consultants.flatMap((c) => c.skillAreas));
+  const allTools = unique(consultants.flatMap((c) => c.tools));
   const allMajors = unique(consultants.flatMap((c) => c.majorsForFilter));
   const allCourses = unique(consultants.flatMap((c) => c.coursework));
   const allLanguages = unique(consultants.flatMap((c) => c.languages));
 
   $: filtered = consultants.filter((c) => {
     const matchesQuery = query.trim().length === 0 || c.name.toLowerCase().includes(query.trim().toLowerCase());
-    const matchesSkill = !skillFilter || c.skills.includes(skillFilter);
+    const matchesSkillArea = !skillAreaFilter || c.skillAreas.includes(skillAreaFilter);
+    const matchesTool = !toolFilter || c.tools.includes(toolFilter);
     const matchesMajor = !majorFilter || c.majorsForFilter.includes(majorFilter);
     const matchesCourse = !courseFilter || c.coursework.includes(courseFilter);
     const matchesLanguage = !languageFilter || c.languages.includes(languageFilter);
-    return matchesQuery && matchesSkill && matchesMajor && matchesCourse && matchesLanguage;
+    return matchesQuery && matchesSkillArea && matchesTool && matchesMajor && matchesCourse && matchesLanguage;
   });
 
   function resetFilters() {
     query = '';
-    skillFilter = '';
+    skillAreaFilter = '';
+    toolFilter = '';
     majorFilter = '';
     courseFilter = '';
     languageFilter = '';
@@ -60,11 +65,20 @@
       />
     </div>
     <div class="flex flex-col">
-      <label class="text-xs font-medium text-slate-500" for="skill">Skill</label>
-      <select id="skill" bind:value={skillFilter} class="rounded-md border border-slate-300 px-3 py-1.5 text-sm">
+      <label class="text-xs font-medium text-slate-500" for="skill-area">Skill area</label>
+      <select id="skill-area" bind:value={skillAreaFilter} class="rounded-md border border-slate-300 px-3 py-1.5 text-sm">
         <option value="">Any</option>
-        {#each allSkills as skill}
-          <option value={skill}>{skill}</option>
+        {#each allSkillAreas as skillArea}
+          <option value={skillArea}>{skillArea}</option>
+        {/each}
+      </select>
+    </div>
+    <div class="flex flex-col">
+      <label class="text-xs font-medium text-slate-500" for="tool">Tool</label>
+      <select id="tool" bind:value={toolFilter} class="rounded-md border border-slate-300 px-3 py-1.5 text-sm">
+        <option value="">Any</option>
+        {#each allTools as tool}
+          <option value={tool}>{tool}</option>
         {/each}
       </select>
     </div>
@@ -123,10 +137,13 @@
           <h3 class="font-semibold text-slate-900">{consultant.name}</h3>
           <p class="text-sm text-slate-500">Class of {consultant.classYear}</p>
           <p class="mt-1 text-sm text-slate-700">{consultant.majorMinorLabel}</p>
-          {#if consultant.skills.length > 0}
+          {#if consultant.skillAreas.length > 0 || consultant.tools.length > 0}
             <div class="mt-2 flex flex-wrap gap-1.5">
-              {#each consultant.skills as skill}
-                <span class="rounded-full bg-davidson-red/10 px-2 py-0.5 text-xs font-medium text-davidson-red">{skill}</span>
+              {#each consultant.skillAreas as skillArea}
+                <span class="rounded-full bg-lake-blue/10 px-2 py-0.5 text-xs font-medium text-lake-blue">{skillArea}</span>
+              {/each}
+              {#each consultant.tools as tool}
+                <span class="rounded-full bg-davidson-red/10 px-2 py-0.5 text-xs font-medium text-davidson-red">{tool}</span>
               {/each}
             </div>
           {/if}

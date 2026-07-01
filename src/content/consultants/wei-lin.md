@@ -6,7 +6,9 @@ classYear: 2028
 intendedMajors:
   - Computer Science
   - Mathematics
-skills:
+skillAreas:
+  - Programming Fundamentals
+tools:
   - Python
   - SQL
 coursework:

@@ -6,7 +6,10 @@ classYear: 2027
 majors:
   - Biology
   - Data Science
-skills:
+skillAreas:
+  - Bioinformatics
+  - Data Visualization
+tools:
   - Python
   - R
   - Excel

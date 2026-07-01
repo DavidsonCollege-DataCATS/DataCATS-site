@@ -17,7 +17,8 @@ const consultants = await Promise.all(
       classYear: entry.data.classYear,
       majorMinorLabel: majorMinorLabel(entry.data),
       majorsForFilter: allMajors(entry.data),
-      skills: entry.data.skills,
+      skillAreas: entry.data.skillAreas,
+      tools: entry.data.tools,
       coursework: entry.data.coursework,
       languages: entry.data.languages,
     };
@@ -35,7 +36,8 @@ const faculty = await Promise.all(
       name: entry.data.name,
       headshotSrc: optimized.src,
       department: entry.data.department,
-      skills: entry.data.skills,
+      skillAreas: entry.data.skillAreas,
+      tools: entry.data.tools,
     };
   }),
 );
@@ -45,7 +47,8 @@ const faculty = await Promise.all(
   <div class="mb-8">
     <h1 class="text-3xl font-bold tracking-tight text-slate-900">Meet the DataCATS</h1>
     <p class="mt-2 max-w-2xl text-slate-600">
-      Filter by skill, major, coursework, or language to find the consultant best suited to help with your project.
+      Filter by skill area, tool, major, coursework, or language to find the consultant best suited to help with your
+      project.
     </p>
   </div>
   <ConsultantGrid client:load consultants={consultants} />
@@ -69,10 +72,13 @@ const faculty = await Promise.all(
             <div class="p-4">
               <h3 class="font-semibold text-slate-900">{person.name}</h3>
               <p class="text-sm text-slate-700">{person.department}</p>
-              {person.skills.length > 0 && (
+              {(person.skillAreas.length > 0 || person.tools.length > 0) && (
                 <div class="mt-2 flex flex-wrap gap-1.5">
-                  {person.skills.map((skill) => (
-                    <span class="rounded-full bg-davidson-red/10 px-2 py-0.5 text-xs font-medium text-davidson-red">{skill}</span>
+                  {person.skillAreas.map((skillArea) => (
+                    <span class="rounded-full bg-lake-blue/10 px-2 py-0.5 text-xs font-medium text-lake-blue">{skillArea}</span>
+                  ))}
+                  {person.tools.map((tool) => (
+                    <span class="rounded-full bg-davidson-red/10 px-2 py-0.5 text-xs font-medium text-davidson-red">{tool}</span>
                   ))}
                 </div>
               )}

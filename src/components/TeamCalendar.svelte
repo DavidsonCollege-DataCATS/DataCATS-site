@@ -9,7 +9,7 @@
 
   /** @type {{slug: string, name: string, title: string, start: string, end: string, mode: string, status: string}[]} */
   export let events = [];
-  /** @type {{slug: string, name: string, skills: string[], majorsForFilter: string[], coursework: string[], languages: string[]}[]} */
+  /** @type {{slug: string, name: string, skillAreas: string[], tools: string[], majorsForFilter: string[], coursework: string[], languages: string[]}[]} */
   export let consultants = [];
   /** Called with the clicked event when it's an open slot. Only used for individual (single-consultant) calendars. */
   export let onSlotClick = null;
@@ -18,7 +18,8 @@
   let calendar;
 
   let tutorFilter = '';
-  let skillFilter = '';
+  let skillAreaFilter = '';
+  let toolFilter = '';
   let majorFilter = '';
   let courseFilter = '';
   let languageFilter = '';
@@ -27,27 +28,30 @@
     return Array.from(new Set(values)).sort();
   }
 
-  const allSkills = unique(consultants.flatMap((c) => c.skills));
+  const allSkillAreas = unique(consultants.flatMap((c) => c.skillAreas));
+  const allTools = unique(consultants.flatMap((c) => c.tools));
   const allMajors = unique(consultants.flatMap((c) => c.majorsForFilter));
   const allCourses = unique(consultants.flatMap((c) => c.coursework));
   const allLanguages = unique(consultants.flatMap((c) => c.languages));
 
   function resetFilters() {
     tutorFilter = '';
-    skillFilter = '';
+    skillAreaFilter = '';
+    toolFilter = '';
     majorFilter = '';
     courseFilter = '';
     languageFilter = '';
   }
 
   // Filters are inlined directly in this statement (rather than called through a helper)
-  // so Svelte's dependency tracking picks up tutorFilter/skillFilter/etc. and re-runs on change.
+  // so Svelte's dependency tracking picks up tutorFilter/skillAreaFilter/etc. and re-runs on change.
   $: visibleEvents = events
     .filter((e) => {
       const c = consultants.find((x) => x.slug === e.slug);
       if (!c) return true;
       if (tutorFilter && e.slug !== tutorFilter) return false;
-      if (skillFilter && !c.skills.includes(skillFilter)) return false;
+      if (skillAreaFilter && !c.skillAreas.includes(skillAreaFilter)) return false;
+      if (toolFilter && !c.tools.includes(toolFilter)) return false;
       if (majorFilter && !c.majorsForFilter.includes(majorFilter)) return false;
       if (courseFilter && !c.coursework.includes(courseFilter)) return false;
       if (languageFilter && !c.languages.includes(languageFilter)) return false;
@@ -115,11 +119,20 @@
         </select>
       </div>
       <div class="flex flex-col">
-        <label class="text-xs font-medium text-slate-500" for="cal-skill">Skill</label>
-        <select id="cal-skill" bind:value={skillFilter} class="rounded-md border border-slate-300 px-3 py-1.5 text-sm">
+        <label class="text-xs font-medium text-slate-500" for="cal-skill-area">Skill area</label>
+        <select id="cal-skill-area" bind:value={skillAreaFilter} class="rounded-md border border-slate-300 px-3 py-1.5 text-sm">
           <option value="">Any</option>
-          {#each allSkills as skill}
-            <option value={skill}>{skill}</option>
+          {#each allSkillAreas as skillArea}
+            <option value={skillArea}>{skillArea}</option>
+          {/each}
+        </select>
+      </div>
+      <div class="flex flex-col">
+        <label class="text-xs font-medium text-slate-500" for="cal-tool">Tool</label>
+        <select id="cal-tool" bind:value={toolFilter} class="rounded-md border border-slate-300 px-3 py-1.5 text-sm">
+          <option value="">Any</option>
+          {#each allTools as tool}
+            <option value={tool}>{tool}</option>
           {/each}
         </select>
       </div>

@@ -6,7 +6,10 @@ classYear: 2027
 majors:
   - Computer Science
   - Economics
-skills:
+skillAreas:
+  - Data Analysis
+  - Data Visualization
+tools:
   - Python
   - SQL
   - Power BI

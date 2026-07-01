@@ -5,7 +5,9 @@ headshot: ../../assets/headshots/priya-natarajan.svg
 classYear: 2028
 intendedMajors:
   - Computer Science
-skills:
+skillAreas:
+  - Programming Fundamentals
+tools:
   - Python
   - Excel
 coursework:

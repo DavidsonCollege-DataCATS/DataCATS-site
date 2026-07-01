@@ -6,7 +6,11 @@ classYear: 2026
 majors:
   - Mathematics
 minor: Data Science
-skills:
+skillAreas:
+  - Statistics
+  - Machine Learning
+  - Data Visualization
+tools:
   - R
   - Python
   - SQL
