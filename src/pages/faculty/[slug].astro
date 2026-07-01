@@ -1,0 +1,99 @@
+---
+import { getCollection, render } from 'astro:content';
+import { getImage } from 'astro:assets';
+import Layout from '../../layouts/Layout.astro';
+import ConsultantSchedule from '../../components/ConsultantSchedule.svelte';
+import availabilityRaw from '../../data/availability.json';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('faculty');
+  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { data } = entry;
+const { Content } = await render(entry);
+
+const optimized = await getImage({ src: data.headshot, width: 500, height: 500 });
+const events = availabilityRaw
+  .filter((e) => e.slug === entry.id)
+  .map((e) => ({ ...e, name: data.name }));
+---
+
+<Layout title={`${data.name} | DataCATS`}>
+  <div class="grid gap-8 md:grid-cols-[280px_1fr]">
+    <div>
+      <img src={optimized.src} alt={data.name} class="aspect-square w-full rounded-xl object-cover shadow-sm" />
+      <h1 class="mt-4 text-2xl font-bold text-slate-900">
+        {data.name}
+        {data.pronouns && <span class="ml-2 text-base font-normal text-slate-500">({data.pronouns})</span>}
+      </h1>
+      <p class="text-slate-500">{data.title}</p>
+      <p class="mt-1 font-medium text-slate-700">{data.department}</p>
+      {data.office && <p class="mt-3 text-sm text-slate-600">Office: {data.office}</p>}
+      {data.email && (
+        <p class="mt-1 text-sm text-slate-600">
+          Email: <a href={`mailto:${data.email}`} class="text-indigo-600 hover:underline">{data.email}</a>
+        </p>
+      )}
+      <p class="mt-1 text-sm text-slate-600">Home country: {data.homeCountry}</p>
+      <p class="mt-1 text-sm text-slate-600">Languages: {data.languages.join(', ')}</p>
+      <p class="mt-1 text-sm text-slate-600">Meets: {data.meetingModes.join(' & ')}</p>
+    </div>
+
+    <div class="space-y-8">
+      <section>
+        <h2 class="text-lg font-semibold text-slate-900">About</h2>
+        <div class="mt-2 max-w-none text-slate-700">
+          <Content />
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-lg font-semibold text-slate-900">Skill inventory</h2>
+        <div class="mt-2 flex flex-wrap gap-2">
+          {data.skills.map((skill) => (
+            <span class="rounded-full bg-indigo-50 px-3 py-1 text-sm font-medium text-indigo-700">{skill}</span>
+          ))}
+        </div>
+      </section>
+
+      {data.coursework.length > 0 && (
+        <section>
+          <h2 class="text-lg font-semibold text-slate-900">Courses taught</h2>
+          <ul class="mt-2 list-inside list-disc text-slate-700">
+            {data.coursework.map((course) => <li>{course}</li>)}
+          </ul>
+        </section>
+      )}
+
+      {data.experience.length > 0 && (
+        <section>
+          <h2 class="text-lg font-semibold text-slate-900">Experience</h2>
+          <ul class="mt-2 space-y-3">
+            {data.experience.map((job) => (
+              <li>
+                <p class="font-medium text-slate-900">{job.title} — {job.organization}</p>
+                {job.dates && <p class="text-sm text-slate-500">{job.dates}</p>}
+                {job.description && <p class="text-sm text-slate-600">{job.description}</p>}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      <section>
+        <h2 class="text-lg font-semibold text-slate-900">Availability</h2>
+        <p class="mt-1 text-sm text-slate-500">Click an open slot to book time with {data.name}.</p>
+        <div class="mt-2">
+          <ConsultantSchedule
+            client:load
+            {events}
+            consultantName={data.name}
+            zoomSchedulerUrl={data.zoomSchedulerUrl ?? ''}
+          />
+        </div>
+      </section>
+    </div>
+  </div>
+</Layout>

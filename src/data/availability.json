@@ -19,5 +19,9 @@
   { "slug": "sofia-alvarez", "title": "Office Hours", "start": "2026-07-14T11:00:00", "end": "2026-07-14T12:30:00", "mode": "virtual", "status": "open" },
 
   { "slug": "wei-lin", "title": "Office Hours", "start": "2026-07-09T09:00:00", "end": "2026-07-09T10:00:00", "mode": "in-person", "status": "open" },
-  { "slug": "wei-lin", "title": "Office Hours", "start": "2026-07-13T09:00:00", "end": "2026-07-13T10:00:00", "mode": "in-person", "status": "open" }
+  { "slug": "wei-lin", "title": "Office Hours", "start": "2026-07-13T09:00:00", "end": "2026-07-13T10:00:00", "mode": "in-person", "status": "open" },
+
+  { "slug": "pete-benbow", "title": "Office Hours", "start": "2026-07-07T09:00:00", "end": "2026-07-07T10:00:00", "mode": "in-person", "status": "open" },
+  { "slug": "pete-benbow", "title": "Office Hours", "start": "2026-07-09T15:00:00", "end": "2026-07-09T16:00:00", "mode": "virtual", "status": "open" },
+  { "slug": "pete-benbow", "title": "Booked Appointment", "start": "2026-07-09T16:00:00", "end": "2026-07-09T16:30:00", "mode": "virtual", "status": "booked" }
 ]

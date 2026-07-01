@@ -44,4 +44,35 @@ const consultants = defineCollection({
       }),
 });
 
-export const collections = { consultants };
+const faculty = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/faculty' }),
+  schema: ({ image }) =>
+    z.object({
+      name: z.string(),
+      pronouns: z.string().optional(),
+      headshot: image(),
+      title: z.string(),
+      department: z.string(),
+      office: z.string().optional(),
+      email: z.string().email().optional(),
+      skills: z.array(z.string()).default([]),
+      coursework: z.array(z.string()).default([]),
+      languages: z.array(z.string()).default([]),
+      homeCountry: z.string(),
+      experience: z
+        .array(
+          z.object({
+            title: z.string(),
+            organization: z.string(),
+            dates: z.string().optional(),
+            description: z.string().optional(),
+          }),
+        )
+        .default([]),
+      meetingModes: z.array(z.enum(['in-person', 'virtual'])).default(['in-person', 'virtual']),
+      zoomSchedulerUrl: z.string().url().optional(),
+      active: z.boolean().default(true),
+    }),
+});
+
+export const collections = { consultants, faculty };
