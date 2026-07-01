@@ -31,7 +31,7 @@
     role="presentation"
   >
     <div
-      class="w-full max-w-[800px] rounded-xl bg-white p-5 shadow-xl"
+      class="flex max-h-[92vh] w-full max-w-[1100px] flex-col rounded-xl bg-white p-5 shadow-xl"
       transition:scale={{ duration: 150, start: 0.96 }}
       on:click|stopPropagation
       role="dialog"
@@ -57,7 +57,8 @@
         src={`${zoomSchedulerUrl}?embed=true`}
         title={`Zoom Scheduler for ${consultantName}`}
         frameborder="0"
-        style="width: 100%; height: 560px;"
+        class="min-h-[650px] flex-1"
+        style="width: 100%; border: none;"
       ></iframe>
     </div>
   </div>
