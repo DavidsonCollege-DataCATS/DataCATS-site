@@ -11,7 +11,6 @@ skills:
   - SQL
 coursework:
   - "CSC 121: Programming & Problem Solving"
-  - Calculus II
 languages:
   - English
   - Mandarin

@@ -18,12 +18,12 @@ skills:
 coursework:
   - "CSC 110: Data Science & Society"
   - "DAT 153: Database Programming"
-  - "DAT 342: Data Engineering and Analytics"
+  - "DAT 342: Data Engineering"
 languages:
   - English
 homeCountry: United States
 socials:
-  linkedin: https://www.linkedin.com/in/pdbenbow/
+  linkedin: https://linkedin.com/in/pdbenbow/
   github: https://github.com/pebenbow
   website: https://petebenbow.com
 meetingModes:

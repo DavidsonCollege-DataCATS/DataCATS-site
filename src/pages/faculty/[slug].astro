@@ -34,28 +34,28 @@ const events = availabilityRaw
       <p class="mt-1 font-medium text-slate-700">{data.department}</p>
       {data.office && (
         <p class="mt-3 flex items-center gap-1.5 text-sm text-slate-600">
-          <Icon name="heroicons:map-pin" class="h-4 w-4 text-slate-400" />
+          <Icon name="heroicons:map-pin-solid" class="h-5 w-5 text-davidson-red" />
           {data.office}
         </p>
       )}
       {data.email && (
         <p class="mt-1 flex items-center gap-1.5 text-sm text-slate-600">
-          <Icon name="heroicons:envelope" class="h-4 w-4 text-slate-400" />
+          <Icon name="heroicons:envelope-solid" class="h-5 w-5 text-davidson-red" />
           <a href={`mailto:${data.email}`} class="text-davidson-red hover:underline">{data.email}</a>
         </p>
       )}
       <p class="mt-1 flex items-center gap-1.5 text-sm text-slate-600">
-        <Icon name="heroicons:globe-alt" class="h-4 w-4 text-slate-400" />
+        <Icon name="heroicons:globe-alt-solid" class="h-5 w-5 text-davidson-red" />
         {data.homeCountry}
       </p>
       <p class="mt-1 flex items-center gap-1.5 text-sm text-slate-600">
-        <Icon name="heroicons:chat-bubble-left-right" class="h-4 w-4 text-slate-400" />
+        <Icon name="heroicons:chat-bubble-left-right-solid" class="h-5 w-5 text-davidson-red" />
         {data.languages.join(', ')}
       </p>
       <p class="mt-1 flex items-center gap-3 text-sm text-slate-600">
         {data.meetingModes.map((mode) => (
           <span class="flex items-center gap-1.5">
-            <Icon name={meetingModeIcons[mode].icon} class="h-4 w-4 text-slate-400" />
+            <Icon name={meetingModeIcons[mode].icon} class="h-5 w-5 text-davidson-red" />
             {meetingModeIcons[mode].label}
           </span>
         ))}

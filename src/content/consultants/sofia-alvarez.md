@@ -13,7 +13,6 @@ skills:
 coursework:
   - "CSC 110: Data Science & Society"
   - "CSC 362: Data Visualization"
-  - Genetics
 languages:
   - English
   - Spanish

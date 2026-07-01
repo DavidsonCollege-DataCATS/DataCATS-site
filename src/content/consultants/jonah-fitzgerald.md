@@ -13,7 +13,6 @@ skills:
 coursework:
   - "MAT 105: Introduction to Statistics"
   - "DAT 205: Statistical Linear Models"
-  - Microeconomics
 languages:
   - English
   - Spanish
