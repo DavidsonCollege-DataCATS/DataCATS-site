@@ -7,6 +7,8 @@ import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://davidsoncollege-datacats.github.io',
+  base: '/DataCATS-site/',
   integrations: [svelte(), icon()],
 
   vite: {

@@ -52,4 +52,8 @@ Availability (office hours / appointment blocks) is sample data in `src/data/ava
 
 ## Deployment
 
-`.github/workflows/azure-static-web-apps.yml` builds and deploys `dist/` to Azure Static Web Apps on every push to `main`, with PR preview environments. Requires an `AZURE_STATIC_WEB_APPS_API_TOKEN` repo secret from the Azure Static Web App resource.
+`.github/workflows/deploy.yml` builds the site and deploys `dist/` to GitHub Pages on every push to `main`. One-time setup: in the repo's Settings → Pages, set "Source" to "GitHub Actions" — no secrets required.
+
+The site is served from `https://davidsoncollege-datacats.github.io/DataCATS-site/` (a subpath, not the domain root), so `astro.config.mjs` sets `site`/`base` accordingly, and internal links use the `withBase()` helper (`src/lib/url.ts`) instead of hardcoded `/`-rooted paths so they resolve correctly under that subpath.
+
+This is meant as a placeholder — swap it for the Azure Static Web Apps workflow (see git history) once that resource exists.

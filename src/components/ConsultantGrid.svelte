@@ -1,5 +1,6 @@
 <script>
   import { fly, fade } from 'svelte/transition';
+  import { withBase } from '../lib/url';
 
   /** @type {{
     slug: string,
@@ -108,7 +109,7 @@
   <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
     {#each filtered as consultant (consultant.slug)}
       <a
-        href={`/consultants/${consultant.slug}`}
+        href={withBase(`consultants/${consultant.slug}`)}
         class="group block overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md"
         in:fly={{ y: 12, duration: 250 }}
         out:fade={{ duration: 120 }}
