@@ -5,6 +5,7 @@
   import timeGridPlugin from '@fullcalendar/timegrid';
   import listPlugin from '@fullcalendar/list';
   import interactionPlugin from '@fullcalendar/interaction';
+  import { davidsonColors } from '../lib/colors';
 
   /** @type {{slug: string, name: string, title: string, start: string, end: string, mode: string, status: string}[]} */
   export let events = [];
@@ -57,8 +58,10 @@
       title: consultants.length > 1 ? `${e.name} — ${e.title}` : e.title,
       start: e.start,
       end: e.end,
-      backgroundColor: e.status === 'booked' ? '#cbd5e1' : e.mode === 'virtual' ? '#6366f1' : '#16a34a',
-      borderColor: e.status === 'booked' ? '#cbd5e1' : e.mode === 'virtual' ? '#6366f1' : '#16a34a',
+      backgroundColor:
+        e.status === 'booked' ? davidsonColors.coolGray6 : e.mode === 'virtual' ? davidsonColors.lakeBlue : davidsonColors.red,
+      borderColor:
+        e.status === 'booked' ? davidsonColors.coolGray6 : e.mode === 'virtual' ? davidsonColors.lakeBlue : davidsonColors.red,
       textColor: '#ffffff',
       extendedProps: { slug: e.slug, mode: e.mode, status: e.status },
     }));
@@ -155,9 +158,9 @@
       </button>
     </div>
     <div class="flex gap-4 text-xs text-slate-500">
-      <span class="flex items-center gap-1"><span class="h-2.5 w-2.5 rounded-full bg-green-600"></span> In-person</span>
-      <span class="flex items-center gap-1"><span class="h-2.5 w-2.5 rounded-full bg-indigo-500"></span> Virtual</span>
-      <span class="flex items-center gap-1"><span class="h-2.5 w-2.5 rounded-full bg-slate-300"></span> Booked</span>
+      <span class="flex items-center gap-1"><span class="h-2.5 w-2.5 rounded-full bg-davidson-red"></span> In-person</span>
+      <span class="flex items-center gap-1"><span class="h-2.5 w-2.5 rounded-full bg-lake-blue"></span> Virtual</span>
+      <span class="flex items-center gap-1"><span class="h-2.5 w-2.5 rounded-full bg-cool-gray-6"></span> Booked</span>
     </div>
   {/if}
 

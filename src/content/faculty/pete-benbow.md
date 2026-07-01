@@ -1,10 +1,10 @@
 ---
 name: Pete Benbow
 pronouns: he/him
-headshot: ../../assets/faculty-headshots/pete-benbow.svg
+headshot: ../../assets/faculty-headshots/animePete.jpg
 title: Director, DataCATS
 department: Data Science
-office: Chambers 3146
+office: Watson 275
 email: pebenbow@davidson.edu
 skills:
   - SQL

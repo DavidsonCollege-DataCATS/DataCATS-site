@@ -56,7 +56,7 @@
         type="text"
         placeholder="Name..."
         bind:value={query}
-        class="rounded-md border border-slate-300 px-3 py-1.5 text-sm focus:border-indigo-500 focus:outline-none"
+        class="rounded-md border border-slate-300 px-3 py-1.5 text-sm focus:border-davidson-red focus:outline-none"
       />
     </div>
     <div class="flex flex-col">

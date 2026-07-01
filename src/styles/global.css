@@ -1,1 +1,20 @@
 @import "tailwindcss";
+
+/*
+ * Davidson College official brand palette.
+ * Source: https://marketing-toolbox.dcreate.domains/branding-assets/color/
+ * Mirrored in src/lib/colors.ts for use in plain JS/Svelte (e.g. FullCalendar).
+ */
+@theme {
+  --color-davidson-red: #D42121;
+  --color-davidson-black: #0F1012;
+  --color-sandstone: #E9DED3;
+  --color-deep-taupe: #9F8B76;
+  --color-lake-blue: #294878;
+  --color-cool-gray-1: #F9F5F2;
+  --color-cool-gray-3: #D4CFCE;
+  --color-cool-gray-6: #B0ABAB;
+  --color-cool-gray-8: #8D898A;
+  --color-cool-gray-10: #6A6869;
+  --color-gray-7540: #4A484A;
+}

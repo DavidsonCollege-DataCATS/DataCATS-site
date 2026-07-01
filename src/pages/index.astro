@@ -53,7 +53,6 @@ const faculty = await Promise.all(
   {faculty.length > 0 && (
     <div class="mt-16">
       <h2 class="text-2xl font-bold tracking-tight text-slate-900">Faculty</h2>
-      <p class="mt-2 max-w-2xl text-slate-600">The faculty director behind the DataCATS program.</p>
       <div class="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {faculty.map((person) => (
           <a
