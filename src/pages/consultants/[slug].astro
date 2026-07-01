@@ -11,11 +11,24 @@ import { meetingModeIcons } from '../../lib/meetingModes';
 import availabilityRaw from '../../data/availability.json';
 
 export async function getStaticPaths() {
-  const entries = await getCollection('consultants');
-  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+  const entries = (await getCollection('consultants')).filter((e) => e.data.active);
+  const ordered = [...entries].sort((a, b) => a.data.name.localeCompare(b.data.name));
+
+  return ordered.map((entry, index) => {
+    const prev = ordered[(index - 1 + ordered.length) % ordered.length];
+    const next = ordered[(index + 1) % ordered.length];
+    return {
+      params: { slug: entry.id },
+      props: {
+        entry,
+        prev: { slug: prev.id, name: prev.data.name },
+        next: { slug: next.id, name: next.data.name },
+      },
+    };
+  });
 }
 
-const { entry } = Astro.props;
+const { entry, prev, next } = Astro.props;
 const { data } = entry;
 const { Content } = await render(entry);
 
@@ -26,6 +39,24 @@ const events = availabilityRaw
 ---
 
 <Layout title={`${data.name} | Data CATS`}>
+  <div class="mb-6 flex items-center justify-between gap-4">
+    <a
+      href={`/consultants/${prev.slug}`}
+      class="flex items-center gap-1.5 rounded-md border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-600 hover:border-davidson-red hover:text-davidson-red"
+    >
+      <Icon name="heroicons:chevron-left" class="h-4 w-4" />
+      {prev.name}
+    </a>
+    <a href="/" class="text-sm font-medium text-slate-500 hover:text-davidson-red">All consultants</a>
+    <a
+      href={`/consultants/${next.slug}`}
+      class="flex items-center gap-1.5 rounded-md border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-600 hover:border-davidson-red hover:text-davidson-red"
+    >
+      {next.name}
+      <Icon name="heroicons:chevron-right" class="h-4 w-4" />
+    </a>
+  </div>
+
   <div class="grid gap-8 md:grid-cols-[280px_1fr]">
     <div>
       <img src={optimized.src} alt={data.name} class="aspect-square w-full rounded-xl object-cover shadow-sm" />
