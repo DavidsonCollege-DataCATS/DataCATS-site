@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import { getImage } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
 import Layout from '../layouts/Layout.astro';
 import ConsultantGrid from '../components/ConsultantGrid.svelte';
 import { majorMinorLabel, allMajors } from '../lib/consultant';
@@ -45,6 +46,27 @@ const faculty = await Promise.all(
 ---
 
 <Layout>
+  <div class="mb-8 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+    <h2 class="text-lg font-semibold text-slate-900">Drop-in office hours</h2>
+    <div class="mt-3 flex flex-col gap-2 text-sm text-slate-700 sm:flex-row sm:gap-8">
+      <p class="flex items-center gap-1.5">
+        <Icon name="heroicons:map-pin-solid" class="h-5 w-5 text-davidson-red" />
+        Chambers 3146
+      </p>
+      <p class="flex items-center gap-1.5">
+        <Icon name="heroicons:calendar-days-solid" class="h-5 w-5 text-davidson-red" />
+        Sunday–Thursday, during the academic year
+      </p>
+      <p class="flex items-center gap-1.5">
+        <Icon name="heroicons:clock-solid" class="h-5 w-5 text-davidson-red" />
+        2–4 p.m. &amp; 7–9 p.m.
+      </p>
+    </div>
+    <p class="mt-3 text-sm text-slate-500">
+      Some consultants also take appointments outside these hours — check an individual profile for their availability.
+    </p>
+  </div>
+
   <div class="mb-8">
     <h1 class="text-3xl font-bold tracking-tight text-slate-900">Meet the Data CATS</h1>
     <p class="mt-2 max-w-2xl text-slate-600">
