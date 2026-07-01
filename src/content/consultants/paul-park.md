@@ -17,9 +17,12 @@ tools:
   - Python
   - Java
 coursework:
-  - "CSC 221: Data Structures"
-  - "DAT 153: Database Programming"
-  - "DAT 205: Statistical Linear Models"
+  - course: "CSC 121: Programming & Problem Solving"
+  - course: "CSC 221: Data Structures"
+  - course: "CSC 362: Data Visualization"
+  - course: "DAT 153: Database Programming"
+  - course: "DAT 205: Statistical Linear Models"
+  - course: "MAT 105: Introduction to Statistics"
 languages:
   - English
   - Korean
@@ -27,7 +30,7 @@ homeCountry: South Korea
 experience:
   - title: Community Research Fellow
     organization: Mulliss Center for Civic Engagement at Davidson, Department of Data Science
-    dates: 2026 06-07
+    dates: Summer 2026
     description: Created a backend data warehouse to store, clean, and load relevant data, including the Census ACS data, into a custom website for the North Mecklenburg Community.
   - title: Military Cook Squad Leader
     organization: Culinary Department of The First Division 58 Artillery Battalion

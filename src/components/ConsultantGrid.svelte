@@ -10,7 +10,7 @@
     majorsForFilter: string[],
     skillAreas: string[],
     tools: string[],
-    coursework: string[],
+    coursework: {course: string, professor?: string, term?: string}[],
     languages: string[],
   }[]} */
   export let consultants = [];
@@ -28,14 +28,14 @@
   const allSkillAreas = unique(consultants.flatMap((c) => c.skillAreas));
   const allTools = unique(consultants.flatMap((c) => c.tools));
   const allMajors = unique(consultants.flatMap((c) => c.majorsForFilter));
-  const allCourses = unique(consultants.flatMap((c) => c.coursework));
+  const allCourses = unique(consultants.flatMap((c) => c.coursework.map((cw) => cw.course)));
   const allLanguages = unique(consultants.flatMap((c) => c.languages));
 
   $: filtered = consultants.filter((c) => {
     const matchesSkillArea = !skillAreaFilter || c.skillAreas.includes(skillAreaFilter);
     const matchesTool = !toolFilter || c.tools.includes(toolFilter);
     const matchesMajor = !majorFilter || c.majorsForFilter.includes(majorFilter);
-    const matchesCourse = !courseFilter || c.coursework.includes(courseFilter);
+    const matchesCourse = !courseFilter || c.coursework.some((cw) => cw.course === courseFilter);
     const matchesLanguage = !languageFilter || c.languages.includes(languageFilter);
     return matchesSkillArea && matchesTool && matchesMajor && matchesCourse && matchesLanguage;
   });

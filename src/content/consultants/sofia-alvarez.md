@@ -15,8 +15,12 @@ tools:
   - R
   - Excel
 coursework:
-  - "CSC 110: Data Science & Society"
-  - "CSC 362: Data Visualization"
+  - course: "CSC 110: Data Science & Society"
+    professor: Dr. Thomas Reyes
+    term: Spring 2025
+  - course: "CSC 362: Data Visualization"
+    professor: Dr. David Okafor
+    term: Fall 2025
 languages:
   - English
   - Spanish

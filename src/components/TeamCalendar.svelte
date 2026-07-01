@@ -9,7 +9,7 @@
 
   /** @type {{slug: string, name: string, title: string, start: string, end: string, mode: string, status: string}[]} */
   export let events = [];
-  /** @type {{slug: string, name: string, skillAreas: string[], tools: string[], majorsForFilter: string[], coursework: string[], languages: string[]}[]} */
+  /** @type {{slug: string, name: string, skillAreas: string[], tools: string[], majorsForFilter: string[], coursework: {course: string, professor?: string, term?: string}[], languages: string[]}[]} */
   export let consultants = [];
   /** Called with the clicked event when it's an open slot. Only used for individual (single-consultant) calendars. */
   export let onSlotClick = null;
@@ -31,7 +31,7 @@
   const allSkillAreas = unique(consultants.flatMap((c) => c.skillAreas));
   const allTools = unique(consultants.flatMap((c) => c.tools));
   const allMajors = unique(consultants.flatMap((c) => c.majorsForFilter));
-  const allCourses = unique(consultants.flatMap((c) => c.coursework));
+  const allCourses = unique(consultants.flatMap((c) => c.coursework.map((cw) => cw.course)));
   const allLanguages = unique(consultants.flatMap((c) => c.languages));
 
   function resetFilters() {
@@ -53,7 +53,7 @@
       if (skillAreaFilter && !c.skillAreas.includes(skillAreaFilter)) return false;
       if (toolFilter && !c.tools.includes(toolFilter)) return false;
       if (majorFilter && !c.majorsForFilter.includes(majorFilter)) return false;
-      if (courseFilter && !c.coursework.includes(courseFilter)) return false;
+      if (courseFilter && !c.coursework.some((cw) => cw.course === courseFilter)) return false;
       if (languageFilter && !c.languages.includes(languageFilter)) return false;
       return true;
     })
