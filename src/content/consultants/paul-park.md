@@ -18,11 +18,26 @@ tools:
   - Java
 coursework:
   - course: "CSC 121: Programming & Problem Solving"
+    professor: P Sharma
+    term: Fall 2022
   - course: "CSC 221: Data Structures"
+    professor: P Sharma
+    term: Fall 2025
   - course: "CSC 362: Data Visualization"
+    professor: K Williams
+    term: Spring 2026
   - course: "DAT 153: Database Programming"
+    professor: P Benbow
+    term: Fall 2025
   - course: "DAT 205: Statistical Linear Models"
+    professor: K Wang
+    term: Spring 2026
   - course: "MAT 105: Introduction to Statistics"
+    professor: K Wang
+    term: Fall 2025
+  - course: "SOC 391: Survey Research Methods"
+    professor: P Sharma
+    term: Spring 2026
 languages:
   - English
   - Korean
