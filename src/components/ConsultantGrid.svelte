@@ -15,7 +15,6 @@
   }[]} */
   export let consultants = [];
 
-  let query = '';
   let skillAreaFilter = '';
   let toolFilter = '';
   let majorFilter = '';
@@ -33,17 +32,15 @@
   const allLanguages = unique(consultants.flatMap((c) => c.languages));
 
   $: filtered = consultants.filter((c) => {
-    const matchesQuery = query.trim().length === 0 || c.name.toLowerCase().includes(query.trim().toLowerCase());
     const matchesSkillArea = !skillAreaFilter || c.skillAreas.includes(skillAreaFilter);
     const matchesTool = !toolFilter || c.tools.includes(toolFilter);
     const matchesMajor = !majorFilter || c.majorsForFilter.includes(majorFilter);
     const matchesCourse = !courseFilter || c.coursework.includes(courseFilter);
     const matchesLanguage = !languageFilter || c.languages.includes(languageFilter);
-    return matchesQuery && matchesSkillArea && matchesTool && matchesMajor && matchesCourse && matchesLanguage;
+    return matchesSkillArea && matchesTool && matchesMajor && matchesCourse && matchesLanguage;
   });
 
   function resetFilters() {
-    query = '';
     skillAreaFilter = '';
     toolFilter = '';
     majorFilter = '';
@@ -54,16 +51,6 @@
 
 <div class="space-y-6">
   <div class="flex flex-wrap items-end gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-    <div class="flex flex-col">
-      <label class="text-xs font-medium text-slate-500" for="search">Search</label>
-      <input
-        id="search"
-        type="text"
-        placeholder="Name..."
-        bind:value={query}
-        class="rounded-md border border-slate-300 px-3 py-1.5 text-sm focus:border-davidson-red focus:outline-none"
-      />
-    </div>
     <div class="flex flex-col">
       <label class="text-xs font-medium text-slate-500" for="skill-area">Skill area</label>
       <select id="skill-area" bind:value={skillAreaFilter} class="rounded-md border border-slate-300 px-3 py-1.5 text-sm">
