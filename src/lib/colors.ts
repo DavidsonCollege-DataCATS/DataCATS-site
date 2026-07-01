@@ -5,6 +5,7 @@
 // Tailwind classes (bg-davidson-red, text-lake-blue, etc.) everywhere else.
 export const davidsonColors = {
   red: '#D42121',
+  redDeep: '#A81C1C',
   black: '#0F1012',
   white: '#FFFFFF',
   sandstone: '#E9DED3',

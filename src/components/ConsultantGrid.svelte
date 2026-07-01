@@ -1,6 +1,9 @@
 <script>
   import { fly, fade } from 'svelte/transition';
   import { withBase } from '../lib/url';
+  import { prefersReducedMotion } from '../lib/motion';
+
+  const reduceMotion = prefersReducedMotion();
 
   /** @type {{
     slug: string,
@@ -111,8 +114,8 @@
       <a
         href={withBase(`consultants/${consultant.slug}`)}
         class="group block overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md"
-        in:fly={{ y: 12, duration: 250 }}
-        out:fade={{ duration: 120 }}
+        in:fly={{ y: 12, duration: reduceMotion ? 0 : 250 }}
+        out:fade={{ duration: reduceMotion ? 0 : 120 }}
       >
         <div class="aspect-square w-full overflow-hidden bg-slate-100">
           <img
@@ -132,7 +135,7 @@
                 <span class="rounded-full bg-lake-blue/10 px-2 py-0.5 text-xs font-medium text-lake-blue">{skillArea}</span>
               {/each}
               {#each consultant.tools as tool}
-                <span class="rounded-full bg-davidson-red/10 px-2 py-0.5 text-xs font-medium text-davidson-red">{tool}</span>
+                <span class="rounded-full bg-davidson-red/10 px-2 py-0.5 text-xs font-medium text-davidson-red-deep">{tool}</span>
               {/each}
             </div>
           {/if}

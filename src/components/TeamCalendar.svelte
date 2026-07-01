@@ -99,7 +99,16 @@
       },
     });
     calendar.render();
+    markDecorativeIcons();
   });
+
+  // FullCalendar's prev/next/today icon spans render with role="img" but no
+  // accessible name of their own; their parent <button> already has a
+  // descriptive title (e.g. "Previous week"), so the icons are just noise
+  // to a screen reader and should be hidden rather than separately labeled.
+  function markDecorativeIcons() {
+    calendarEl?.querySelectorAll('.fc-icon').forEach((icon) => icon.setAttribute('aria-hidden', 'true'));
+  }
 
   onDestroy(() => {
     calendar?.destroy();

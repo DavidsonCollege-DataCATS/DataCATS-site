@@ -7,6 +7,10 @@
  */
 @theme {
   --color-davidson-red: #D42121;
+  /* Darker than the brand red — used for text on light davidson-red tinted
+     backgrounds (e.g. skill pills), since the brand red itself falls just
+     under the 4.5:1 WCAG AA contrast ratio at those tint levels. */
+  --color-davidson-red-deep: #A81C1C;
   --color-davidson-black: #0F1012;
   --color-sandstone: #E9DED3;
   --color-deep-taupe: #9F8B76;
@@ -17,4 +21,14 @@
   --color-cool-gray-8: #8D898A;
   --color-cool-gray-10: #6A6869;
   --color-gray-7540: #4A484A;
+}
+
+/* Respect the user's OS-level motion preference for Astro's page-navigation
+   view transitions (the profile "zoom" and consultant "swipe" animations). */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
 }
