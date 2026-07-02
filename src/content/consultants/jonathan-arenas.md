@@ -20,12 +20,15 @@ coursework:
   - course: "CSC 110: Data Science & Society"
     instructor: P Benbow
     term: Fall 2025
+  - course: "CSC 121: Programming & Problem-Solving"
+    instructor: C Nemitz
+    term: Fall 2025
   - course: "CSC 221: Data Structures"
-    instructor: K Williams
-    term: Fall 2025
+    instructor: T Lim
+    term: Spring 2026
   - course: "MAT 140: Multivariable Calculus"
-    instructor: K Williams
-    term: Fall 2025
+    instructor: L Heyer
+    term: Spring 2026
 languages:
   - English
   - Spanish

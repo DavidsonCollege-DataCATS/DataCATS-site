@@ -5,6 +5,7 @@ import { Icon } from 'astro-icon/components';
 import Layout from '../../layouts/Layout.astro';
 import ConsultantSchedule from '../../components/ConsultantSchedule.svelte';
 import SocialLinks from '../../components/SocialLinks.astro';
+import ScheduleButton from '../../components/ScheduleButton.svelte';
 import CourseworkTable from '../../components/CourseworkTable.astro';
 import { majorMinorLabel } from '../../lib/consultant';
 import { meetingModeIcons } from '../../lib/meetingModes';
@@ -98,6 +99,7 @@ const flagUrl = countryFlagUrl(data.homeCountry);
         ))}
       </p>
       <SocialLinks socials={data.socials} name={data.name} />
+      <ScheduleButton client:load consultantName={data.name} zoomSchedulerUrl={data.zoomSchedulerUrl ?? ''} />
     </div>
 
     <div class="space-y-8">

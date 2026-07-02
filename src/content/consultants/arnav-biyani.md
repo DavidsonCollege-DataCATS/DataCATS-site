@@ -23,8 +23,8 @@ coursework:
     instructor: P Benbow
     term: Fall 2025
   - course: "CSC 121: Programming & Problem Solving"
-    instructor: C Nemitz
-    term: Fall 2022
+    instructor: R Ramanujan
+    term: Spring 2026
   - course: "DAT 153: Database Programming (in progress)"
     instructor: P Benbow
     term: Fall 2026
@@ -46,7 +46,7 @@ experience:
 meetingModes:
   - in-person
   - virtual
-zoomSchedulerUrl: https://davidson.zoom.us/zbook/pete-benbow/data-cats-office-hours
+zoomSchedulerUrl: https://davidson.zoom.us/zbook/pete-benbow/
 ---
 
 Arnav is a sophomore Economics major with a Data Science minor who specializes in exploratory data analysis, financial and statistical modeling, and data visualization in R, Excel, and Observable Plot.
