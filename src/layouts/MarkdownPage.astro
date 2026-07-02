@@ -11,7 +11,7 @@ const { frontmatter } = Astro.props;
 ---
 
 <Layout title={frontmatter.title}>
-  <article class="prose prose-slate max-w-3xl prose-headings:text-slate-900 prose-a:text-davidson-red prose-a:no-underline hover:prose-a:underline">
+  <article class="prose prose-slate dark:prose-invert max-w-3xl prose-headings:text-slate-900 dark:prose-headings:text-slate-100 prose-a:text-davidson-red dark:prose-a:text-davidson-red-light prose-a:no-underline hover:prose-a:underline">
     <slot />
   </article>
 </Layout>

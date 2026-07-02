@@ -6,6 +6,7 @@
 export const davidsonColors = {
   red: '#D42121',
   redDeep: '#A81C1C',
+  redLight: '#E66E6E',
   black: '#0F1012',
   white: '#FFFFFF',
   sandstone: '#E9DED3',

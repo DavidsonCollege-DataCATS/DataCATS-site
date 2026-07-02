@@ -4,6 +4,7 @@ import { Image } from 'astro:assets';
 import { ClientRouter } from 'astro:transitions';
 import { withBase } from '../lib/url';
 import davidsonLogo from '../assets/branding/davidson-left-aligned-lockup-red and white-RGB.png';
+import ThemeToggle from '../components/ThemeToggle.svelte';
 
 interface Props {
   title?: string;
@@ -19,6 +20,20 @@ const { title = 'Data CATS | Davidson College' } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <script is:inline>
+      // Applied on first load, and again to the incoming document during
+      // Astro's view-transition swap (`astro:before-swap` fires before the new
+      // <html> replaces the old one, which otherwise drops the class we set
+      // here — the swap doesn't carry over attributes added by client JS).
+      // ThemeToggle.svelte reads this same class.
+      function applyTheme(doc) {
+        const stored = localStorage.getItem('theme');
+        const dark = stored ? stored === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        doc.documentElement.classList.toggle('dark', dark);
+      }
+      applyTheme(document);
+      document.addEventListener('astro:before-swap', (event) => applyTheme(event.newDocument));
+    </script>
     <ClientRouter />
     <script>
       // "Previous"/"Next" consultant links carry data-direction so the swipe
@@ -31,14 +46,15 @@ const { title = 'Data CATS | Davidson College' } = Astro.props;
       });
     </script>
   </head>
-  <body class="flex min-h-screen flex-col bg-slate-50 text-slate-900">
+  <body class="flex min-h-screen flex-col bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-100">
     <header class="bg-davidson-red">
       <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <a href={withBase('')} class="text-lg font-bold tracking-tight text-white">Data CATS</a>
-        <div class="flex gap-6 text-sm font-medium text-white">
+        <div class="flex items-center gap-6 text-sm font-medium text-white">
           <a href={withBase('')} class="hover:text-cool-gray-1">Consultants</a>
           <a href={withBase('calendar')} class="hover:text-cool-gray-1">Calendar</a>
           <a href={withBase('about')} class="hover:text-cool-gray-1">About</a>
+          <ThemeToggle client:load />
         </div>
       </nav>
     </header>

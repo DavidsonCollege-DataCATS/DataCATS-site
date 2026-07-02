@@ -20,7 +20,7 @@ coursework:
   - course: "CSC 110: Data Science & Society"
     instructor: P Benbow
     term: Fall 2025
-  - course: "CSC 121: Programming & Problem-Solving"
+  - course: "CSC 121: Programming & Problem Solving"
     instructor: C Nemitz
     term: Fall 2025
   - course: "CSC 221: Data Structures"

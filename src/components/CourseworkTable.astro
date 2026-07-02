@@ -10,7 +10,7 @@ const { coursework } = Astro.props;
   <div>
     <table class="hidden w-full border-collapse text-left text-sm md:table">
       <thead>
-        <tr class="border-b border-slate-200 text-xs font-semibold uppercase tracking-wide text-slate-500">
+        <tr class="border-b border-slate-200 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:border-slate-700 dark:text-slate-400">
           <th class="py-2 pr-4">Course</th>
           <th class="py-2 pr-4">Instructor</th>
           <th class="py-2">Term</th>
@@ -18,12 +18,12 @@ const { coursework } = Astro.props;
       </thead>
       <tbody>
         {coursework.map((cw) => (
-          <tr class="border-b border-slate-100 last:border-0 hover:bg-slate-50">
-            <td class="py-2 pr-4 font-medium text-slate-900">{cw.course}</td>
-            <td class="py-2 pr-4 text-slate-600">{cw.instructor ?? '—'}</td>
+          <tr class="border-b border-slate-100 last:border-0 hover:bg-slate-50 dark:border-slate-800 dark:hover:bg-slate-800">
+            <td class="py-2 pr-4 font-medium text-slate-900 dark:text-slate-100">{cw.course}</td>
+            <td class="py-2 pr-4 text-slate-600 dark:text-slate-400">{cw.instructor ?? '—'}</td>
             <td class="py-2">
               {cw.term && (
-                <span class="rounded-full bg-lake-blue/10 px-2 py-0.5 text-xs font-medium text-lake-blue">{cw.term}</span>
+                <span class="rounded-full bg-lake-blue/10 px-2 py-0.5 text-xs font-medium text-lake-blue dark:bg-lake-blue/30 dark:text-cool-gray-1">{cw.term}</span>
               )}
             </td>
           </tr>
@@ -33,13 +33,13 @@ const { coursework } = Astro.props;
 
     <ul class="space-y-2 md:hidden">
       {coursework.map((cw) => (
-        <li class="rounded-lg border border-slate-200 p-3">
-          <p class="font-medium text-slate-900">{cw.course}</p>
+        <li class="rounded-lg border border-slate-200 p-3 dark:border-slate-700">
+          <p class="font-medium text-slate-900 dark:text-slate-100">{cw.course}</p>
           {(cw.instructor || cw.term) && (
-            <p class="mt-1 flex items-center gap-2 text-sm text-slate-600">
+            <p class="mt-1 flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
               {cw.instructor && <span>{cw.instructor}</span>}
               {cw.term && (
-                <span class="rounded-full bg-lake-blue/10 px-2 py-0.5 text-xs font-medium text-lake-blue">{cw.term}</span>
+                <span class="rounded-full bg-lake-blue/10 px-2 py-0.5 text-xs font-medium text-lake-blue dark:bg-lake-blue/30 dark:text-cool-gray-1">{cw.term}</span>
               )}
             </p>
           )}

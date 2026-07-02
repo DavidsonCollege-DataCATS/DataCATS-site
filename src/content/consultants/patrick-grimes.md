@@ -20,8 +20,20 @@ coursework:
   - course: "CSC 110: Data Science & Society"
     instructor: P Benbow
     term: Fall 2024
+  - course: "CSC 121: Programming & Problem Solving"
+    instructor: P Benbow
+    term: Spring 2025
+  - course: "CSC 221: Data Structures"
+    instructor: K Williams
+    term: Spring 2025
+  - course: "CSC 363: Data Visualization"
+    instructor: K Williams
+    term: Spring 2026
   - course: "DAT 153: Database Programming"
     instructor: P Benbow
+    term: Spring 2025
+  - course: "SOC 392: Quantitative Data Analysis"
+    instructor: A Bhandari
     term: Spring 2025
 languages:
   - English

@@ -1,6 +1,17 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/* Manual (class-based) dark mode toggle instead of Tailwind v4's default
+   prefers-color-scheme-only `dark:` variant — set/cleared on <html> by
+   ThemeToggle.svelte and the theme-init script in Layout.astro. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Let the browser render native form controls (select dropdowns, scrollbars)
+   with dark chrome automatically, instead of a light popup inside a dark page. */
+.dark {
+  color-scheme: dark;
+}
+
 /*
  * Davidson College official brand palette.
  * Source: https://marketing-toolbox.dcreate.domains/branding-assets/color/
@@ -12,6 +23,11 @@
      backgrounds (e.g. skill pills), since the brand red itself falls just
      under the 4.5:1 WCAG AA contrast ratio at those tint levels. */
   --color-davidson-red-deep: #A81C1C;
+  /* Lighter than the brand red — used for red text/links directly on dark
+     surfaces in dark mode, since the brand red itself falls just under the
+     4.5:1 WCAG AA contrast ratio against dark backgrounds (the opposite
+     problem davidson-red-deep solves for light backgrounds). */
+  --color-davidson-red-light: #E66E6E;
   --color-davidson-black: #0F1012;
   --color-sandstone: #E9DED3;
   --color-deep-taupe: #9F8B76;
@@ -29,6 +45,24 @@
 .fc-event-either {
   background-image: linear-gradient(135deg, var(--color-davidson-red) 50%, var(--color-lake-blue) 50%) !important;
   border-color: var(--color-davidson-black) !important;
+}
+
+/* Re-theme FullCalendar's own chrome (grid lines, header cells, buttons, "today"
+   highlight) for dark mode via its CSS custom-property API. Event colors
+   (in-person/virtual/either/standing-hours) are intentionally left alone — they're
+   brand- and legend-coded, and should mean the same thing in either theme. */
+.dark .fc {
+  --fc-border-color: var(--color-cool-gray-10);
+  --fc-neutral-bg-color: #1e293b;
+  --fc-page-bg-color: transparent;
+  --fc-list-event-hover-bg-color: #334155;
+  --fc-today-bg-color: rgba(212, 33, 33, 0.15);
+  --fc-button-bg-color: #334155;
+  --fc-button-border-color: #475569;
+  --fc-button-hover-bg-color: #475569;
+  --fc-button-hover-border-color: #64748b;
+  --fc-button-active-bg-color: #1e293b;
+  --fc-button-active-border-color: #64748b;
 }
 
 /* Respect the user's OS-level motion preference for Astro's page-navigation
