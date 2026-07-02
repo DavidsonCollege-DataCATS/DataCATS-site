@@ -18,6 +18,7 @@ src/
 ├── content/consultants/*.md   # one file per consultant (frontmatter = structured data, body = bio)
 ├── content.config.ts          # zod schema for consultant frontmatter, incl. major/minor rules
 ├── data/availability.json     # sample office-hours / appointment blocks per consultant
+├── data/recurringAvailability.json  # weekly recurring bookable slots (term-bound start/end)
 ├── components/                # Svelte islands: ConsultantGrid, TeamCalendar, ScheduleModal, ConsultantSchedule
 ├── layouts/Layout.astro       # shared page shell/nav
 ├── lib/consultant.ts          # shared helpers (major/minor label formatting)
@@ -40,6 +41,8 @@ Add or edit a consultant by adding/editing a file in `src/content/consultants/`.
 These rules are enforced by the zod schema in `src/content.config.ts` — `npm run build` will fail with a clear error if a consultant file violates them.
 
 Availability (office hours / appointment blocks) is sample data in `src/data/availability.json`, keyed by consultant slug (the markdown filename). Replace this with real availability data, or wire it up to a live calendar feed, when that's ready.
+
+Weekly recurring availability (e.g. standing office hours for a consultant or faculty member) lives in `src/data/recurringAvailability.json` as recurring rules (`daysOfWeek`/`startTime`/`endTime`/`startRecur`/`endRecur`), one entry per person per contiguous weekly time block. `startRecur` and `endRecur` are **required** — hours won't show before `startRecur` or after `endRecur`, so update or add an entry each term rather than leaving one open-ended. Unlike `availability.json`, these are bookable directly (they render and behave the same as any other open slot) and support `"mode": "either"` for a slot offered as in-person or virtual, interchangeably.
 
 Standing team drop-in hours (independent of any one consultant) live in `src/data/standingOfficeHours.json` as recurring rules (`daysOfWeek`/`startTime`/`endTime`/`startRecur`/`endRecur`), one entry per contiguous time block per term. **Add a new entry each term** — the dates are firm start/end bounds, so hours won't show before `startRecur` or after `endRecur`. These render as a translucent, non-clickable background band on every calendar (team and individual), distinct from real bookable appointments, so they never look like a specific consultant's shift.
 
