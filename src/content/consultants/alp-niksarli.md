@@ -6,30 +6,47 @@ email: alniksarli@davidson.edu
 classYear: 2027
 majors:
   - Computer Science
+minor: Data Science
 skillAreas:
-  - Databases
-  - Data Engineering
-  - Statistics
+  - Machine Learning
+  - Natural Language Processing
+  - Software Engineering
+  - Data Visualization
+  - Web Development
 tools:
-  - SQL
-  - R
   - Python
-  - Java
+  - AWS
+  - SQL
+  - TypeScript
+  - Git
 coursework:
-  - course: "CSC 110: Data Science & Society"
-    instructor: P Benbow
-    term: Fall 2024
-  - course: "DAT 153: Database Programming"
-    instructor: P Benbow
-    term: Spring 2025
+  - course: "CSC 374: Deep Learning"
+    instructor: M Kuchera
+    term: Spring 2026
+  - course: "Adv. Natural Language Processing (abroad)"
+  - course: "MAT 210: Mathematical Modeling"
+    instructor: T Chartier
+    term: Spring 2026
+  - course: "CSC 363: Human Computer Interaction"
+    instructor: K Williams
+    term: Spring 2026
+  - course: "CSC 312: Software Design"
+    instructor: T Lim
+    term: Spring 2026
+  - course: "ECO 204: Stats & Basic Econometrics"
+    instructor: T Lim
+    term: Spring 2026
 languages:
   - English
+  - Turkish
 homeCountry: Turkey
 experience:
-  - title: Data Science Intern
-    organization: Trane Technologies
+  - title: Software Engineering Intern
+    organization: Google Maps
     dates: Summer 2026
-  - title: Community Research Fellow
-    organization: Mulliss Center for Civic Engagement at Davidson, Department of Data Science
+    description: Built agents for automating feature evaluation and debugging.
+  - title: Software Development Engineering Intern
+    organization: Amazon Lab126
     dates: Summer 2025
+    description: Built infrastructure for client side agent detection.
 ---

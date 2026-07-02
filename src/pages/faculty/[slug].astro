@@ -6,6 +6,7 @@ import Layout from '../../layouts/Layout.astro';
 import ConsultantSchedule from '../../components/ConsultantSchedule.svelte';
 import SocialLinks from '../../components/SocialLinks.astro';
 import { meetingModeIcons } from '../../lib/meetingModes';
+import { countryFlagUrl } from '../../lib/countryFlags';
 import availabilityRaw from '../../data/availability.json';
 
 export async function getStaticPaths() {
@@ -21,6 +22,7 @@ const optimized = await getImage({ src: data.headshot, width: 500, height: 500 }
 const events = availabilityRaw
   .filter((e) => e.slug === entry.id)
   .map((e) => ({ ...e, name: data.name }));
+const flagUrl = countryFlagUrl(data.homeCountry);
 ---
 
 <Layout title={`${data.name} | Data CATS`}>
@@ -52,6 +54,7 @@ const events = availabilityRaw
       <p class="mt-1 flex items-center gap-1.5 text-sm text-slate-600">
         <Icon name="heroicons:globe-alt-solid" class="h-5 w-5 text-davidson-red" />
         {data.homeCountry}
+        {flagUrl && <img src={flagUrl} alt="" class="inline h-4 w-5" />}
       </p>
       <p class="mt-1 flex items-center gap-1.5 text-sm text-slate-600">
         <Icon name="heroicons:chat-bubble-left-right-solid" class="h-5 w-5 text-davidson-red" />

@@ -9,8 +9,8 @@ majors:
 minor: Data Science
 skillAreas:
   - Data Visualization
-  - Website Design
-  - Financial Modelling
+  - Web Development
+  - Financial Modeling
   - Statistics
 tools:
   - R
