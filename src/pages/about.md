@@ -14,7 +14,7 @@ Our consultants come from a range of majors and bring a mix of general skill are
 ## How to get help
 
 - **Browse consultants** on the [homepage](/DataCATS-site/) and filter by skill area, tool, major, coursework, or language to find the best match for your project.
-- **Drop in** during office hours — no appointment needed! See the homepage for the current location and schedule.
+- **Drop in** during office hours, no appointment needed! See the homepage for the current location and schedule.
 - **Book an appointment** with a consultant. Browse their profiles and find an open slot on their calendar, or check the [team calendar](/DataCATS-site/calendar) to browse everyone's availability at once.
 
 ## Who runs the program

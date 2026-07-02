@@ -49,4 +49,5 @@ experience:
     organization: Amazon Lab126
     dates: Summer 2025
     description: Built infrastructure for client side agent detection.
+zoomSchedulerUrl: https://davidson.zoom.us/zbook/pete-benbow/
 ---

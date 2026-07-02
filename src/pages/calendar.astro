@@ -4,8 +4,10 @@ import Layout from '../layouts/Layout.astro';
 import TeamCalendar from '../components/TeamCalendar.svelte';
 import { allMajors } from '../lib/consultant';
 import availabilityRaw from '../data/availability.json';
+import recurringAvailabilityRaw from '../data/recurringAvailability.json';
 
 const entries = (await getCollection('consultants')).filter((e) => e.data.active);
+const facultyEntries = (await getCollection('faculty')).filter((e) => e.data.active);
 
 const consultants = entries.map((entry) => ({
   slug: entry.id,
@@ -17,8 +19,15 @@ const consultants = entries.map((entry) => ({
   languages: entry.data.languages,
 }));
 
-const nameBySlug = new Map(consultants.map((c) => [c.slug, c.name]));
+// Faculty aren't filterable from the team calendar's dropdowns (those are scoped to
+// student consultants' majors/coursework), but their name should still resolve
+// correctly for events tied to their slug (e.g. standing faculty office hours).
+const nameBySlug = new Map([
+  ...consultants.map((c) => [c.slug, c.name]),
+  ...facultyEntries.map((e) => [e.id, e.data.name]),
+]);
 const events = availabilityRaw.map((e) => ({ ...e, name: nameBySlug.get(e.slug) ?? e.slug }));
+const recurringEvents = recurringAvailabilityRaw.map((e) => ({ ...e, name: nameBySlug.get(e.slug) ?? e.slug }));
 ---
 
 <Layout title="Team Calendar | Data CATS">
@@ -29,5 +38,5 @@ const events = availabilityRaw.map((e) => ({ ...e, name: nameBySlug.get(e.slug) 
       major, coursework, language, or an individual consultant.
     </p>
   </div>
-  <TeamCalendar client:load {events} {consultants} />
+  <TeamCalendar client:load {events} {recurringEvents} {consultants} />
 </Layout>

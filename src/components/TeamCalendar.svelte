@@ -10,6 +10,9 @@
 
   /** @type {{slug: string, name: string, title: string, start: string, end: string, mode: string}[]} */
   export let events = [];
+  /** Weekly recurring bookable slots (e.g. standing office hours), as opposed to one-off dated `events`.
+   * @type {{slug: string, name: string, title: string, daysOfWeek: number[], startTime: string, endTime: string, startRecur?: string, endRecur?: string, mode: string}[]} */
+  export let recurringEvents = [];
   /** @type {{slug: string, name: string, skillAreas: string[], tools: string[], majorsForFilter: string[], coursework: {course: string, instructor?: string, term?: string}[], languages: string[]}[]} */
   export let consultants = [];
   /** Called with the clicked event when it's an open slot. Only used for individual (single-consultant) calendars. */
@@ -49,6 +52,14 @@
     backgroundColor: davidsonColors.sandstone,
   }));
 
+  // "either" means the slot is offered as in-person or virtual, interchangeably —
+  // rendered as a red/blue split so it reads as "both", not a third unrelated mode.
+  function eventColorFor(mode) {
+    if (mode === 'virtual') return { backgroundColor: davidsonColors.lakeBlue, borderColor: davidsonColors.lakeBlue };
+    if (mode === 'either') return { backgroundColor: davidsonColors.black, borderColor: davidsonColors.black };
+    return { backgroundColor: davidsonColors.red, borderColor: davidsonColors.red };
+  }
+
   function resetFilters() {
     tutorFilter = '';
     skillAreaFilter = '';
@@ -77,11 +88,37 @@
       title: consultants.length > 1 ? `${e.name} — ${e.title}` : e.title,
       start: e.start,
       end: e.end,
-      backgroundColor: e.mode === 'virtual' ? davidsonColors.lakeBlue : davidsonColors.red,
-      borderColor: e.mode === 'virtual' ? davidsonColors.lakeBlue : davidsonColors.red,
+      ...eventColorFor(e.mode),
       textColor: '#ffffff',
       extendedProps: { slug: e.slug, mode: e.mode },
     }))
+    .concat(
+      recurringEvents
+        .filter((e) => {
+          const c = consultants.find((x) => x.slug === e.slug);
+          if (!c) return true;
+          if (tutorFilter && e.slug !== tutorFilter) return false;
+          if (skillAreaFilter && !c.skillAreas.includes(skillAreaFilter)) return false;
+          if (toolFilter && !c.tools.includes(toolFilter)) return false;
+          if (majorFilter && !c.majorsForFilter.includes(majorFilter)) return false;
+          if (courseFilter && !c.coursework.some((cw) => cw.course === courseFilter)) return false;
+          if (languageFilter && !c.languages.includes(languageFilter)) return false;
+          return true;
+        })
+        .map((e, i) => ({
+          id: `recurring-${e.slug}-${i}`,
+          title: consultants.length > 1 ? `${e.name} — ${e.title}` : e.title,
+          daysOfWeek: e.daysOfWeek,
+          startTime: e.startTime,
+          endTime: e.endTime,
+          startRecur: e.startRecur,
+          endRecur: e.endRecur,
+          ...eventColorFor(e.mode),
+          textColor: '#ffffff',
+          classNames: e.mode === 'either' ? ['fc-event-either'] : [],
+          extendedProps: { slug: e.slug, mode: e.mode },
+        })),
+    )
     .concat(standingOfficeHourEvents);
 
   $: if (calendar) {
@@ -198,6 +235,10 @@
   <div class="flex flex-wrap gap-4 text-sm text-slate-600">
     <span class="flex items-center gap-1.5"><span class="h-3 w-3 rounded-full bg-davidson-red"></span> In-person</span>
     <span class="flex items-center gap-1.5"><span class="h-3 w-3 rounded-full bg-lake-blue"></span> Virtual</span>
+    <span class="flex items-center gap-1.5">
+      <span class="h-3 w-3 rounded-full border border-davidson-black fc-event-either"></span>
+      In-person or virtual
+    </span>
     <span class="flex items-center gap-1.5">
       <span class="h-3 w-3 rounded-full bg-sandstone border border-deep-taupe"></span>
       Team drop-in hours (Chambers 3146) — not specific to this consultant

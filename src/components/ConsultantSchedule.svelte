@@ -3,6 +3,7 @@
   import ScheduleModal from './ScheduleModal.svelte';
 
   export let events = [];
+  export let recurringEvents = [];
   export let consultantName = '';
   export let zoomSchedulerUrl = '';
 
@@ -20,7 +21,7 @@
   }
 </script>
 
-<TeamCalendar {events} consultants={[]} onSlotClick={handleSlotClick} />
+<TeamCalendar {events} {recurringEvents} consultants={[]} onSlotClick={handleSlotClick} />
 
 <ScheduleModal
   open={modalOpen}

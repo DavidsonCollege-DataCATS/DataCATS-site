@@ -12,6 +12,7 @@ import { meetingModeIcons } from '../../lib/meetingModes';
 import { withBase } from '../../lib/url';
 import { countryFlagUrl } from '../../lib/countryFlags';
 import availabilityRaw from '../../data/availability.json';
+import recurringAvailabilityRaw from '../../data/recurringAvailability.json';
 
 export async function getStaticPaths() {
   const entries = (await getCollection('consultants')).filter((e) => e.data.active);
@@ -37,6 +38,9 @@ const { Content } = await render(entry);
 
 const optimized = await getImage({ src: data.headshot, width: 500, height: 500 });
 const events = availabilityRaw
+  .filter((e) => e.slug === entry.id)
+  .map((e) => ({ ...e, name: data.name }));
+const recurringEvents = recurringAvailabilityRaw
   .filter((e) => e.slug === entry.id)
   .map((e) => ({ ...e, name: data.name }));
 const flagUrl = countryFlagUrl(data.homeCountry);
@@ -152,6 +156,7 @@ const flagUrl = countryFlagUrl(data.homeCountry);
           <ConsultantSchedule
             client:load
             {events}
+            {recurringEvents}
             consultantName={data.name}
             zoomSchedulerUrl={data.zoomSchedulerUrl ?? ''}
           />

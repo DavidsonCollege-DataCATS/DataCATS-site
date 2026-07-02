@@ -24,6 +24,13 @@
   --color-gray-7540: #4A484A;
 }
 
+/* FullCalendar events offered as "in-person or virtual" — split red/blue so it
+   reads as "both", rather than introducing an unrelated third color. */
+.fc-event-either {
+  background-image: linear-gradient(135deg, var(--color-davidson-red) 50%, var(--color-lake-blue) 50%) !important;
+  border-color: var(--color-davidson-black) !important;
+}
+
 /* Respect the user's OS-level motion preference for Astro's page-navigation
    view transitions (the profile "zoom" and consultant "swipe" animations). */
 @media (prefers-reduced-motion: reduce) {

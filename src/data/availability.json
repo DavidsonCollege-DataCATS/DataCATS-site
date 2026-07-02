@@ -13,8 +13,5 @@
   { "slug": "patrick-grimes", "title": "Office Hours", "start": "2026-07-14T11:00:00", "end": "2026-07-14T12:30:00", "mode": "virtual" },
 
   { "slug": "paul-park", "title": "Office Hours", "start": "2026-07-09T09:00:00", "end": "2026-07-09T10:00:00", "mode": "in-person" },
-  { "slug": "paul-park", "title": "Office Hours", "start": "2026-07-13T09:00:00", "end": "2026-07-13T10:00:00", "mode": "in-person" },
-
-  { "slug": "pete-benbow", "title": "Office Hours", "start": "2026-07-07T09:00:00", "end": "2026-07-07T10:00:00", "mode": "in-person" },
-  { "slug": "pete-benbow", "title": "Office Hours", "start": "2026-07-09T15:00:00", "end": "2026-07-09T16:00:00", "mode": "virtual" }
+  { "slug": "paul-park", "title": "Office Hours", "start": "2026-07-13T09:00:00", "end": "2026-07-13T10:00:00", "mode": "in-person" }
 ]
