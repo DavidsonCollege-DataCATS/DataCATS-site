@@ -25,9 +25,10 @@ coursework:
   - course: "CSC 121: Programming & Problem Solving"
     instructor: R Ramanujan
     term: Spring 2026
-  - course: "DAT 153: Database Programming (in progress)"
+  - course: "DAT 153: Database Programming"
     instructor: P Benbow
     term: Fall 2026
+    inprogress: TRUE
 languages:
   - English
   - Hindi

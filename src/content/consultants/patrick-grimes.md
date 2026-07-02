@@ -26,7 +26,7 @@ coursework:
   - course: "CSC 221: Data Structures"
     instructor: K Williams
     term: Spring 2025
-  - course: "CSC 363: Data Visualization"
+  - course: "CSC 362: Data Visualization"
     instructor: K Williams
     term: Spring 2026
   - course: "DAT 153: Database Programming"

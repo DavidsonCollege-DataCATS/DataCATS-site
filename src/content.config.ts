@@ -36,6 +36,7 @@ const consultants = defineCollection({
               course: z.string(),
               instructor: z.string().optional().nullable(),
               term: z.string().optional().nullable(),
+              inprogress: z.boolean().optional().nullable(),
             }),
           )
           .default([]),
