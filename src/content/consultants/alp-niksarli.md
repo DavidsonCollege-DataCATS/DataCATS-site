@@ -20,22 +20,25 @@ tools:
   - TypeScript
   - Git
 coursework:
-  - course: "CSC 374: Deep Learning"
-    instructor: M Kuchera
-    term: Spring 2026
-  - course: "Adv. Natural Language Processing (abroad)"
-  - course: "MAT 210: Mathematical Modeling"
-    instructor: T Chartier
-    term: Spring 2026
-  - course: "CSC 363: Human Computer Interaction"
-    instructor: K Williams
-    term: Spring 2026
+  - course: "CSC 110: Data Science & Society"
+    instructor: A Condor
+    term: Fall 2023
   - course: "CSC 312: Software Design"
     instructor: T Lim
-    term: Spring 2026
+    term: Spring 2024
+  - course: "CSC 363: Human Computer Interaction"
+    instructor: K Williams
+    term: Spring 2024
+  - course: "CSC 374: Deep Learning"
+    instructor: M Kuchera
+    term: Spring 2025
+  - course: "Adv. Natural Language Processing (abroad)"
   - course: "ECO 204: Stats & Basic Econometrics"
-    instructor: T Lim
-    term: Spring 2026
+    instructor: J Jha
+    term: Fall 2024
+  - course: "MAT 210: Mathematical Modeling"
+    instructor: T Chartier
+    term: Spring 2025
 languages:
   - English
   - Turkish
