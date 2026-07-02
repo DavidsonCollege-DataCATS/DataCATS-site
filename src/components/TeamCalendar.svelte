@@ -8,7 +8,7 @@
   import { davidsonColors } from '../lib/colors';
   import standingOfficeHours from '../data/standingOfficeHours.json';
 
-  /** @type {{slug: string, name: string, title: string, start: string, end: string, mode: string, status: string}[]} */
+  /** @type {{slug: string, name: string, title: string, start: string, end: string, mode: string}[]} */
   export let events = [];
   /** @type {{slug: string, name: string, skillAreas: string[], tools: string[], majorsForFilter: string[], coursework: {course: string, instructor?: string, term?: string}[], languages: string[]}[]} */
   export let consultants = [];
@@ -77,12 +77,10 @@
       title: consultants.length > 1 ? `${e.name} — ${e.title}` : e.title,
       start: e.start,
       end: e.end,
-      backgroundColor:
-        e.status === 'booked' ? davidsonColors.coolGray6 : e.mode === 'virtual' ? davidsonColors.lakeBlue : davidsonColors.red,
-      borderColor:
-        e.status === 'booked' ? davidsonColors.coolGray6 : e.mode === 'virtual' ? davidsonColors.lakeBlue : davidsonColors.red,
+      backgroundColor: e.mode === 'virtual' ? davidsonColors.lakeBlue : davidsonColors.red,
+      borderColor: e.mode === 'virtual' ? davidsonColors.lakeBlue : davidsonColors.red,
       textColor: '#ffffff',
-      extendedProps: { slug: e.slug, mode: e.mode, status: e.status },
+      extendedProps: { slug: e.slug, mode: e.mode },
     }))
     .concat(standingOfficeHourEvents);
 
@@ -104,8 +102,9 @@
       slotMinTime: '08:00:00',
       events: visibleEvents,
       eventClick: (info) => {
-        const { status } = info.event.extendedProps;
-        if (status === 'open' && onSlotClick) {
+        // The standing-office-hours band is a `display: 'background'` event with no
+        // slug of its own — it's ambient context, not a bookable slot.
+        if (info.event.display !== 'background' && onSlotClick) {
           onSlotClick({
             start: info.event.start,
             end: info.event.end,
@@ -196,12 +195,11 @@
       </button>
     </div>
   {/if}
-  <div class="flex flex-wrap gap-4 text-xs text-slate-500">
-    <span class="flex items-center gap-1"><span class="h-2.5 w-2.5 rounded-full bg-davidson-red"></span> In-person</span>
-    <span class="flex items-center gap-1"><span class="h-2.5 w-2.5 rounded-full bg-lake-blue"></span> Virtual</span>
-    <span class="flex items-center gap-1"><span class="h-2.5 w-2.5 rounded-full bg-cool-gray-6"></span> Booked</span>
-    <span class="flex items-center gap-1">
-      <span class="h-2.5 w-2.5 rounded-full bg-sandstone border border-deep-taupe"></span>
+  <div class="flex flex-wrap gap-4 text-sm text-slate-600">
+    <span class="flex items-center gap-1.5"><span class="h-3 w-3 rounded-full bg-davidson-red"></span> In-person</span>
+    <span class="flex items-center gap-1.5"><span class="h-3 w-3 rounded-full bg-lake-blue"></span> Virtual</span>
+    <span class="flex items-center gap-1.5">
+      <span class="h-3 w-3 rounded-full bg-sandstone border border-deep-taupe"></span>
       Team drop-in hours (Chambers 3146) — not specific to this consultant
     </span>
   </div>
