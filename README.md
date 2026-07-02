@@ -41,6 +41,8 @@ These rules are enforced by the zod schema in `src/content.config.ts` — `npm r
 
 Availability (office hours / appointment blocks) is sample data in `src/data/availability.json`, keyed by consultant slug (the markdown filename). Replace this with real availability data, or wire it up to a live calendar feed, when that's ready.
 
+Standing team drop-in hours (independent of any one consultant) live in `src/data/standingOfficeHours.json` as recurring rules (`daysOfWeek`/`startTime`/`endTime`/`startRecur`/`endRecur`), one entry per contiguous time block per term. **Add a new entry each term** — the dates are firm start/end bounds, so hours won't show before `startRecur` or after `endRecur`. These render as a translucent, non-clickable background band on every calendar (team and individual), distinct from real bookable appointments, so they never look like a specific consultant's shift.
+
 ## Commands
 
 | Command           | Action                                       |

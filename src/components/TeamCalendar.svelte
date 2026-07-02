@@ -6,6 +6,7 @@
   import listPlugin from '@fullcalendar/list';
   import interactionPlugin from '@fullcalendar/interaction';
   import { davidsonColors } from '../lib/colors';
+  import standingOfficeHours from '../data/standingOfficeHours.json';
 
   /** @type {{slug: string, name: string, title: string, start: string, end: string, mode: string, status: string}[]} */
   export let events = [];
@@ -33,6 +34,20 @@
   const allMajors = unique(consultants.flatMap((c) => c.majorsForFilter));
   const allCourses = unique(consultants.flatMap((c) => c.coursework.map((cw) => cw.course)));
   const allLanguages = unique(consultants.flatMap((c) => c.languages));
+
+  // Standing team drop-in hours (Chambers 3146) — recurring, not tied to any one
+  // consultant. Rendered as a non-interactive background band on every calendar
+  // (team and individual) so it never looks like a specific person's shift.
+  const standingOfficeHourEvents = standingOfficeHours.map((oh, i) => ({
+    id: `standing-office-hours-${i}`,
+    daysOfWeek: oh.daysOfWeek,
+    startTime: oh.startTime,
+    endTime: oh.endTime,
+    startRecur: oh.startRecur,
+    endRecur: oh.endRecur,
+    display: 'background',
+    backgroundColor: davidsonColors.sandstone,
+  }));
 
   function resetFilters() {
     tutorFilter = '';
@@ -68,7 +83,8 @@
         e.status === 'booked' ? davidsonColors.coolGray6 : e.mode === 'virtual' ? davidsonColors.lakeBlue : davidsonColors.red,
       textColor: '#ffffff',
       extendedProps: { slug: e.slug, mode: e.mode, status: e.status },
-    }));
+    }))
+    .concat(standingOfficeHourEvents);
 
   $: if (calendar) {
     calendar.removeAllEvents();
@@ -179,12 +195,16 @@
         Reset
       </button>
     </div>
-    <div class="flex gap-4 text-xs text-slate-500">
-      <span class="flex items-center gap-1"><span class="h-2.5 w-2.5 rounded-full bg-davidson-red"></span> In-person</span>
-      <span class="flex items-center gap-1"><span class="h-2.5 w-2.5 rounded-full bg-lake-blue"></span> Virtual</span>
-      <span class="flex items-center gap-1"><span class="h-2.5 w-2.5 rounded-full bg-cool-gray-6"></span> Booked</span>
-    </div>
   {/if}
+  <div class="flex flex-wrap gap-4 text-xs text-slate-500">
+    <span class="flex items-center gap-1"><span class="h-2.5 w-2.5 rounded-full bg-davidson-red"></span> In-person</span>
+    <span class="flex items-center gap-1"><span class="h-2.5 w-2.5 rounded-full bg-lake-blue"></span> Virtual</span>
+    <span class="flex items-center gap-1"><span class="h-2.5 w-2.5 rounded-full bg-cool-gray-6"></span> Booked</span>
+    <span class="flex items-center gap-1">
+      <span class="h-2.5 w-2.5 rounded-full bg-sandstone border border-deep-taupe"></span>
+      Team drop-in hours (Chambers 3146) — not specific to this consultant
+    </span>
+  </div>
 
   <div bind:this={calendarEl} class="rounded-xl border border-slate-200 bg-white p-3 shadow-sm"></div>
 </div>
