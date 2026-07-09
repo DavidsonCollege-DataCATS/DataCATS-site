@@ -3,7 +3,8 @@ import '../styles/global.css';
 import { Image } from 'astro:assets';
 import { ClientRouter } from 'astro:transitions';
 import { withBase } from '../lib/url';
-import davidsonLogo from '../assets/branding/davidson-left-aligned-lockup-red and white-RGB.png';
+import davidsonLogoRedWhite from '../assets/branding/davidson-left-aligned-lockup-red and white-RGB.png';
+import davidsonLogoBlackWhite from '../assets/branding/davidson-left-aligned-lockup-black and white-RGB.png';
 import ThemeToggle from '../components/ThemeToggle.svelte';
 
 interface Props {
@@ -61,9 +62,10 @@ const { title = 'Data CATS | Davidson College' } = Astro.props;
     <main class="mx-auto max-w-6xl flex-1 px-6 py-10" transition:animate="slide">
       <slot />
     </main>
-    <footer class="bg-davidson-black">
+    <footer class="bg-davidson-black dark:bg-davidson-red">
       <div class="mx-auto flex max-w-6xl flex-col items-center gap-3 px-6 py-6 text-center text-sm text-white">
-        <Image src={davidsonLogo} alt="Davidson College" height={32} class="h-8 w-auto" />
+        <Image src={davidsonLogoRedWhite} alt="Davidson College" height={32} class="h-8 w-auto dark:hidden" />
+        <Image src={davidsonLogoBlackWhite} alt="Davidson College" height={32} class="hidden h-8 w-auto dark:block" />
         <p>Site built and managed by Prof. Pete Benbow and the Data CATS team.</p>
       </div>
     </footer>

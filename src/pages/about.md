@@ -13,7 +13,7 @@ Our consultants come from a range of majors and bring a mix of general skill are
 
 ## Where to find us
 
-The Data CATS lab is in **Chambers 3146**. 
+The Data CATS lab is located in **Chambers 3146**. Beginning in August 2027, we'll be moving into the newly-renovated Abernethy Library!
 
 - **Browse consultants** on the [homepage](/DataCATS-site/) and filter by skill area, tool, major, coursework, or language to find the best match for your project.
 - **Drop in** during office hours, no appointment needed! See the homepage for the current location and schedule.
