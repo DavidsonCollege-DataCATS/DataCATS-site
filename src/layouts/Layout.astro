@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
 import { ClientRouter } from 'astro:transitions';
 import { withBase } from '../lib/url';
 import davidsonLogoRedWhite from '../assets/branding/davidson-left-aligned-lockup-red and white-RGB.png';
@@ -67,6 +68,15 @@ const { title = 'Data CATS | Davidson College' } = Astro.props;
         <Image src={davidsonLogoRedWhite} alt="Davidson College" height={32} class="h-8 w-auto dark:hidden" />
         <Image src={davidsonLogoBlackWhite} alt="Davidson College" height={32} class="hidden h-8 w-auto dark:block" />
         <p>Site built and managed by Prof. Pete Benbow and the Data CATS team.</p>
+        <a
+          href="https://github.com/DavidsonCollege-DataCATS/DataCATS-site"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-1.5 text-white hover:underline"
+        >
+          <Icon name="simple-icons:github" class="h-4 w-4" />
+          View source & report issues on GitHub
+        </a>
       </div>
     </footer>
   </body>

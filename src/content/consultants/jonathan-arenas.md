@@ -8,7 +8,7 @@ majors:
   - Computer Science
   - Economics
 skillAreas:
-  - Data Analytics
+  - Data Analysis
   - Machine Learning
   - Data Visualization
 tools:
