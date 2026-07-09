@@ -6,16 +6,17 @@ email: pagrimes@davidson.edu
 classYear: 2027
 majors:
   - Data Science
-  - German
+  - German Studies
 skillAreas:
   - Databases
+  - Data Analysis
   - Data Engineering
-  - Statistics
+  - Data Visualization
 tools:
   - SQL
   - R
   - Python
-  - Java
+  - Tableau
 coursework:
   - course: "CSC 110: Data Science & Society"
     instructor: P Benbow
@@ -48,3 +49,5 @@ experience:
     dates: Summer 2025
 zoomSchedulerUrl: https://davidson.zoom.us/zbook/pete-benbow/
 ---
+
+Patrick is a senior Data Science major who specializes in data pipelines and visualization.

@@ -169,10 +169,10 @@
 
 <div class="space-y-4">
   {#if consultants.length > 1}
-    <div class="flex flex-wrap items-end gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+    <div class="flex flex-wrap items-end gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-800">
       <div class="flex flex-col">
-        <label class="text-xs font-medium text-slate-500 dark:text-slate-400" for="tutor">Consultant</label>
-        <select id="tutor" bind:value={tutorFilter} class="rounded-md border border-slate-300 px-3 py-1.5 text-sm dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100">
+        <label class="text-xs font-medium text-slate-500 dark:text-neutral-400" for="tutor">Consultant</label>
+        <select id="tutor" bind:value={tutorFilter} class="rounded-md border border-slate-300 px-3 py-1.5 text-sm dark:border-neutral-600 dark:bg-neutral-700 dark:text-neutral-100">
           <option value="">Any</option>
           {#each consultants as c}
             <option value={c.slug}>{c.name}</option>
@@ -180,8 +180,8 @@
         </select>
       </div>
       <div class="flex flex-col">
-        <label class="text-xs font-medium text-slate-500 dark:text-slate-400" for="cal-skill-area">Skill area</label>
-        <select id="cal-skill-area" bind:value={skillAreaFilter} class="rounded-md border border-slate-300 px-3 py-1.5 text-sm dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100">
+        <label class="text-xs font-medium text-slate-500 dark:text-neutral-400" for="cal-skill-area">Skill area</label>
+        <select id="cal-skill-area" bind:value={skillAreaFilter} class="rounded-md border border-slate-300 px-3 py-1.5 text-sm dark:border-neutral-600 dark:bg-neutral-700 dark:text-neutral-100">
           <option value="">Any</option>
           {#each allSkillAreas as skillArea}
             <option value={skillArea}>{skillArea}</option>
@@ -189,8 +189,8 @@
         </select>
       </div>
       <div class="flex flex-col">
-        <label class="text-xs font-medium text-slate-500 dark:text-slate-400" for="cal-tool">Tool</label>
-        <select id="cal-tool" bind:value={toolFilter} class="rounded-md border border-slate-300 px-3 py-1.5 text-sm dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100">
+        <label class="text-xs font-medium text-slate-500 dark:text-neutral-400" for="cal-tool">Tool</label>
+        <select id="cal-tool" bind:value={toolFilter} class="rounded-md border border-slate-300 px-3 py-1.5 text-sm dark:border-neutral-600 dark:bg-neutral-700 dark:text-neutral-100">
           <option value="">Any</option>
           {#each allTools as tool}
             <option value={tool}>{tool}</option>
@@ -198,8 +198,8 @@
         </select>
       </div>
       <div class="flex flex-col">
-        <label class="text-xs font-medium text-slate-500 dark:text-slate-400" for="cal-major">Major</label>
-        <select id="cal-major" bind:value={majorFilter} class="rounded-md border border-slate-300 px-3 py-1.5 text-sm dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100">
+        <label class="text-xs font-medium text-slate-500 dark:text-neutral-400" for="cal-major">Major</label>
+        <select id="cal-major" bind:value={majorFilter} class="rounded-md border border-slate-300 px-3 py-1.5 text-sm dark:border-neutral-600 dark:bg-neutral-700 dark:text-neutral-100">
           <option value="">Any</option>
           {#each allMajors as major}
             <option value={major}>{major}</option>
@@ -207,8 +207,8 @@
         </select>
       </div>
       <div class="flex flex-col">
-        <label class="text-xs font-medium text-slate-500 dark:text-slate-400" for="cal-course">Course</label>
-        <select id="cal-course" bind:value={courseFilter} class="rounded-md border border-slate-300 px-3 py-1.5 text-sm dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100">
+        <label class="text-xs font-medium text-slate-500 dark:text-neutral-400" for="cal-course">Course</label>
+        <select id="cal-course" bind:value={courseFilter} class="rounded-md border border-slate-300 px-3 py-1.5 text-sm dark:border-neutral-600 dark:bg-neutral-700 dark:text-neutral-100">
           <option value="">Any</option>
           {#each allCourses as course}
             <option value={course}>{course}</option>
@@ -216,8 +216,8 @@
         </select>
       </div>
       <div class="flex flex-col">
-        <label class="text-xs font-medium text-slate-500 dark:text-slate-400" for="cal-language">Language</label>
-        <select id="cal-language" bind:value={languageFilter} class="rounded-md border border-slate-300 px-3 py-1.5 text-sm dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100">
+        <label class="text-xs font-medium text-slate-500 dark:text-neutral-400" for="cal-language">Language</label>
+        <select id="cal-language" bind:value={languageFilter} class="rounded-md border border-slate-300 px-3 py-1.5 text-sm dark:border-neutral-600 dark:bg-neutral-700 dark:text-neutral-100">
           <option value="">Any</option>
           {#each allLanguages as language}
             <option value={language}>{language}</option>
@@ -226,13 +226,13 @@
       </div>
       <button
         on:click={resetFilters}
-        class="rounded-md border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100 dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-700"
+        class="rounded-md border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100 dark:border-neutral-600 dark:text-neutral-300 dark:hover:bg-neutral-700"
       >
         Reset
       </button>
     </div>
   {/if}
-  <div class="flex flex-wrap gap-4 text-sm text-slate-600 dark:text-slate-400">
+  <div class="flex flex-wrap gap-4 text-sm text-slate-600 dark:text-neutral-400">
     <span class="flex items-center gap-1.5"><span class="h-3 w-3 rounded-full bg-davidson-red"></span> In-person</span>
     <span class="flex items-center gap-1.5"><span class="h-3 w-3 rounded-full bg-lake-blue"></span> Virtual</span>
     <span class="flex items-center gap-1.5">
@@ -245,5 +245,5 @@
     </span>
   </div>
 
-  <div bind:this={calendarEl} class="rounded-xl border border-slate-200 bg-white p-3 shadow-sm dark:border-slate-700 dark:bg-slate-800"></div>
+  <div bind:this={calendarEl} class="rounded-xl border border-slate-200 bg-white p-3 shadow-sm dark:border-neutral-700 dark:bg-neutral-800"></div>
 </div>

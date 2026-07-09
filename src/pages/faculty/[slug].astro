@@ -39,33 +39,33 @@ const flagUrl = countryFlagUrl(data.homeCountry);
         class="aspect-square w-full rounded-xl object-cover shadow-sm"
         style={`view-transition-name: headshot-${entry.id}`}
       />
-      <h1 class="mt-4 text-2xl font-bold text-slate-900 dark:text-slate-100">
+      <h1 class="mt-4 text-2xl font-bold text-slate-900 dark:text-neutral-100">
         {data.name}
-        {data.pronouns && <span class="ml-2 text-base font-normal text-slate-500 dark:text-slate-400">({data.pronouns})</span>}
+        {data.pronouns && <span class="ml-2 text-base font-normal text-slate-500 dark:text-neutral-400">({data.pronouns})</span>}
       </h1>
-      <p class="mt-1 font-medium text-slate-700 dark:text-slate-300">{data.department}</p>
+      <p class="mt-1 font-medium text-slate-700 dark:text-neutral-300">{data.department}</p>
       {data.office && (
-        <p class="mt-3 flex items-center gap-1.5 text-sm text-slate-600 dark:text-slate-400">
+        <p class="mt-3 flex items-center gap-1.5 text-sm text-slate-600 dark:text-neutral-400">
           <Icon name="heroicons:map-pin-solid" class="h-5 w-5 text-davidson-red" />
           {data.office}
         </p>
       )}
       {data.email && (
-        <p class="mt-1 flex items-center gap-1.5 text-sm text-slate-600 dark:text-slate-400">
+        <p class="mt-1 flex items-center gap-1.5 text-sm text-slate-600 dark:text-neutral-400">
           <Icon name="heroicons:envelope-solid" class="h-5 w-5 text-davidson-red" />
           <a href={`mailto:${data.email}`} class="text-davidson-red hover:underline dark:text-davidson-red-light">{data.email}</a>
         </p>
       )}
-      <p class="mt-1 flex items-center gap-1.5 text-sm text-slate-600 dark:text-slate-400">
+      <p class="mt-1 flex items-center gap-1.5 text-sm text-slate-600 dark:text-neutral-400">
         <Icon name="heroicons:globe-alt-solid" class="h-5 w-5 text-davidson-red" />
         {data.homeCountry}
         {flagUrl && <img src={flagUrl} alt="" class="inline h-4 w-5" />}
       </p>
-      <p class="mt-1 flex items-center gap-1.5 text-sm text-slate-600 dark:text-slate-400">
+      <p class="mt-1 flex items-center gap-1.5 text-sm text-slate-600 dark:text-neutral-400">
         <Icon name="heroicons:chat-bubble-left-right-solid" class="h-5 w-5 text-davidson-red" />
         {data.languages.join(', ')}
       </p>
-      <p class="mt-1 flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
+      <p class="mt-1 flex items-center gap-3 text-sm text-slate-600 dark:text-neutral-400">
         {data.meetingModes.map((mode) => (
           <span class="flex items-center gap-1.5">
             <Icon name={meetingModeIcons[mode].icon} class="h-5 w-5 text-davidson-red" />
@@ -79,14 +79,14 @@ const flagUrl = countryFlagUrl(data.homeCountry);
 
     <div class="space-y-8">
       <section>
-        <h2 class="text-lg font-semibold text-slate-900 dark:text-slate-100">About</h2>
-        <div class="mt-2 max-w-none text-slate-700 dark:text-slate-300">
+        <h2 class="text-lg font-semibold text-slate-900 dark:text-neutral-100">About</h2>
+        <div class="mt-2 max-w-none text-slate-700 dark:text-neutral-300">
           <Content />
         </div>
       </section>
 
       <section>
-        <h2 class="text-lg font-semibold text-slate-900 dark:text-slate-100">Skill inventory</h2>
+        <h2 class="text-lg font-semibold text-slate-900 dark:text-neutral-100">Skill inventory</h2>
         <div class="mt-2 flex flex-wrap gap-2">
           {data.skillAreas.map((skillArea) => (
             <span class="rounded-full bg-lake-blue/10 px-3 py-1 text-sm font-medium text-lake-blue dark:bg-lake-blue/30 dark:text-cool-gray-1">{skillArea}</span>
@@ -99,8 +99,8 @@ const flagUrl = countryFlagUrl(data.homeCountry);
 
       {data.coursework.length > 0 && (
         <section>
-          <h2 class="text-lg font-semibold text-slate-900 dark:text-slate-100">Courses I teach</h2>
-          <ul class="mt-2 list-inside list-disc text-slate-700 dark:text-slate-300">
+          <h2 class="text-lg font-semibold text-slate-900 dark:text-neutral-100">Courses I teach</h2>
+          <ul class="mt-2 list-inside list-disc text-slate-700 dark:text-neutral-300">
             {data.coursework.map((course) => <li>{course}</li>)}
           </ul>
         </section>
@@ -108,13 +108,13 @@ const flagUrl = countryFlagUrl(data.homeCountry);
 
       {data.experience.length > 0 && (
         <section>
-          <h2 class="text-lg font-semibold text-slate-900 dark:text-slate-100">Experience</h2>
+          <h2 class="text-lg font-semibold text-slate-900 dark:text-neutral-100">Experience</h2>
           <ul class="mt-2 space-y-3">
             {data.experience.map((job) => (
               <li>
-                <p class="font-medium text-slate-900 dark:text-slate-100">{job.title} — {job.organization}</p>
-                {job.dates && <p class="text-sm text-slate-500 dark:text-slate-400">{job.dates}</p>}
-                {job.description && <p class="text-sm text-slate-600 dark:text-slate-400">{job.description}</p>}
+                <p class="font-medium text-slate-900 dark:text-neutral-100">{job.title} — {job.organization}</p>
+                {job.dates && <p class="text-sm text-slate-500 dark:text-neutral-400">{job.dates}</p>}
+                {job.description && <p class="text-sm text-slate-600 dark:text-neutral-400">{job.description}</p>}
               </li>
             ))}
           </ul>
@@ -122,8 +122,8 @@ const flagUrl = countryFlagUrl(data.homeCountry);
       )}
 
       <section>
-        <h2 class="text-lg font-semibold text-slate-900 dark:text-slate-100">Availability</h2>
-        <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Click an open slot to book time with {data.name}.</p>
+        <h2 class="text-lg font-semibold text-slate-900 dark:text-neutral-100">Availability</h2>
+        <p class="mt-1 text-sm text-slate-500 dark:text-neutral-400">Click an open slot to book time with {data.name}.</p>
         <div class="mt-2">
           <ConsultantSchedule
             client:load

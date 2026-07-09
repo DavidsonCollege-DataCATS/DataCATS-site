@@ -10,6 +10,7 @@ office: Watson 275
 email: pebenbow@davidson.edu
 skillAreas:
   - Data Engineering
+  - Business Intelligence
   - Databases
   - Data Analysis
 tools:
@@ -37,4 +38,4 @@ meetingModes:
 zoomSchedulerUrl: https://davidson.zoom.us/zbook/pete-benbow/
 ---
 
-I'm the James B. Duke Assistant Professor of the Practice in Data Science, and Director of Data CATS. I graduated from Davidson in 2007 with a degree in Political Science, and worked in data engineering and analytics professionally for over a decade before I began teaching.
+I'm the James B. Duke Assistant Professor of the Practice in Data Science, and Director of Data CATS. I graduated from Davidson in 2007 with a degree in Political Science, and worked in the field of data analytics professionally for over a decade before I began teaching. I specialize in data engineering and business intelligence (BI).

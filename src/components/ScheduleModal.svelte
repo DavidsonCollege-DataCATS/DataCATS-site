@@ -89,7 +89,7 @@
   >
     <div
       bind:this={dialogEl}
-      class="flex max-h-[92vh] w-full max-w-[1100px] flex-col rounded-xl bg-white p-5 shadow-xl dark:bg-slate-800"
+      class="flex max-h-[92vh] w-full max-w-[1100px] flex-col rounded-xl bg-white p-5 shadow-xl dark:bg-neutral-800"
       transition:scale={{ duration: reduceMotion ? 0 : 150, start: 0.96 }}
       on:click|stopPropagation
       role="dialog"
@@ -98,15 +98,15 @@
     >
       <div class="mb-3 flex items-start justify-between">
         <div>
-          <h2 class="text-lg font-semibold text-slate-900 dark:text-slate-100">Book time with {consultantName}</h2>
+          <h2 class="text-lg font-semibold text-slate-900 dark:text-neutral-100">Book time with {consultantName}</h2>
           {#if slot}
-            <p class="text-sm text-slate-500 dark:text-slate-400">{formatSlot(slot)}</p>
+            <p class="text-sm text-slate-500 dark:text-neutral-400">{formatSlot(slot)}</p>
           {/if}
         </div>
         <button
           bind:this={closeButtonEl}
           on:click={onClose}
-          class="rounded-md p-1 text-slate-400 hover:bg-slate-100 hover:text-slate-600 dark:hover:bg-slate-700 dark:hover:text-slate-200"
+          class="rounded-md p-1 text-slate-400 hover:bg-slate-100 hover:text-slate-600 dark:hover:bg-neutral-700 dark:hover:text-neutral-200"
           aria-label="Close"
         >
           ✕
