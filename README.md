@@ -46,6 +46,8 @@ Weekly recurring availability (e.g. standing office hours for a consultant or fa
 
 Standing team drop-in hours (independent of any one consultant) live in `src/data/standingOfficeHours.json` as recurring rules (`daysOfWeek`/`startTime`/`endTime`/`startRecur`/`endRecur`), one entry per contiguous time block per term. **Add a new entry each term** — the dates are firm start/end bounds, so hours won't show before `startRecur` or after `endRecur`. These render as a translucent, non-clickable background band on every calendar (team and individual), distinct from real bookable appointments, so they never look like a specific consultant's shift.
 
+Academic breaks (Fall Break, Thanksgiving, Spring Break, etc.) live in `src/data/academicBreaks.json` as a flat list of `{label, start, end}` date ranges (both inclusive). **Update this each year** from the [registrar's academic calendar](https://www.davidson.edu/offices-and-services/registrar/academic-calendars). Everyone's recurring availability and the standing drop-in hours automatically go dark during these ranges — `src/lib/academicBreaks.js` splits each recurring rule's active date range around them at render time, so you never have to hand-edit anyone's individual `startRecur`/`endRecur` to account for a break.
+
 ## Commands
 
 | Command           | Action                                       |

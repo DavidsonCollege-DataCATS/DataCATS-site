@@ -6,7 +6,9 @@
   import listPlugin from '@fullcalendar/list';
   import interactionPlugin from '@fullcalendar/interaction';
   import { davidsonColors } from '../lib/colors';
+  import { splitAroundBreaks } from '../lib/academicBreaks';
   import standingOfficeHours from '../data/standingOfficeHours.json';
+  import academicBreaks from '../data/academicBreaks.json';
 
   /** @type {{slug: string, name: string, title: string, start: string, end: string, mode: string}[]} */
   export let events = [];
@@ -41,16 +43,18 @@
   // Standing team drop-in hours (Chambers 3146) — recurring, not tied to any one
   // consultant. Rendered as a non-interactive background band on every calendar
   // (team and individual) so it never looks like a specific person's shift.
-  const standingOfficeHourEvents = standingOfficeHours.map((oh, i) => ({
-    id: `standing-office-hours-${i}`,
-    daysOfWeek: oh.daysOfWeek,
-    startTime: oh.startTime,
-    endTime: oh.endTime,
-    startRecur: oh.startRecur,
-    endRecur: oh.endRecur,
-    display: 'background',
-    backgroundColor: davidsonColors.sandstone,
-  }));
+  const standingOfficeHourEvents = standingOfficeHours.flatMap((oh, i) =>
+    splitAroundBreaks(oh.startRecur, oh.endRecur, academicBreaks).map((seg, j) => ({
+      id: `standing-office-hours-${i}-${j}`,
+      daysOfWeek: oh.daysOfWeek,
+      startTime: oh.startTime,
+      endTime: oh.endTime,
+      startRecur: seg.startRecur,
+      endRecur: seg.endRecur,
+      display: 'background',
+      backgroundColor: davidsonColors.sandstone,
+    })),
+  );
 
   // "either" means the slot is offered as in-person or virtual, interchangeably —
   // rendered as a red/blue split so it reads as "both", not a third unrelated mode.
@@ -105,19 +109,21 @@
           if (languageFilter && !c.languages.includes(languageFilter)) return false;
           return true;
         })
-        .map((e, i) => ({
-          id: `recurring-${e.slug}-${i}`,
-          title: consultants.length > 1 ? `${e.name} — ${e.title}` : e.title,
-          daysOfWeek: e.daysOfWeek,
-          startTime: e.startTime,
-          endTime: e.endTime,
-          startRecur: e.startRecur,
-          endRecur: e.endRecur,
-          ...eventColorFor(e.mode),
-          textColor: '#ffffff',
-          classNames: e.mode === 'either' ? ['fc-event-either'] : [],
-          extendedProps: { slug: e.slug, mode: e.mode },
-        })),
+        .flatMap((e, i) =>
+          splitAroundBreaks(e.startRecur, e.endRecur, academicBreaks).map((seg, j) => ({
+            id: `recurring-${e.slug}-${i}-${j}`,
+            title: consultants.length > 1 ? `${e.name} — ${e.title}` : e.title,
+            daysOfWeek: e.daysOfWeek,
+            startTime: e.startTime,
+            endTime: e.endTime,
+            startRecur: seg.startRecur,
+            endRecur: seg.endRecur,
+            ...eventColorFor(e.mode),
+            textColor: '#ffffff',
+            classNames: e.mode === 'either' ? ['fc-event-either'] : [],
+            extendedProps: { slug: e.slug, mode: e.mode },
+          })),
+        ),
     )
     .concat(standingOfficeHourEvents);
 
