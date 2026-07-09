@@ -43,6 +43,8 @@ const faculty = await Promise.all(
       department: entry.data.department,
       skillAreas: entry.data.skillAreas,
       tools: entry.data.tools,
+      homeCountry: entry.data.homeCountry,
+      flagUrl: countryFlagUrl(entry.data.homeCountry),
     };
   }),
 );
@@ -104,7 +106,10 @@ const faculty = await Promise.all(
               />
             </div>
             <div class="p-4">
-              <h3 class="font-semibold text-slate-900 dark:text-neutral-100">{person.name}</h3>
+              <div class="flex items-center justify-between gap-2">
+                <h3 class="font-semibold text-slate-900 dark:text-neutral-100">{person.name}</h3>
+                {person.flagUrl && <img src={person.flagUrl} alt={person.homeCountry} class="h-4 w-5 flex-shrink-0" />}
+              </div>
               <p class="text-sm text-slate-700 dark:text-neutral-300">{person.department}</p>
               {(person.skillAreas.length > 0 || person.tools.length > 0) && (
                 <div class="mt-2 flex flex-wrap gap-1.5">
