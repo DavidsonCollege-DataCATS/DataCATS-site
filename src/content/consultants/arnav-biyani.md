@@ -35,6 +35,9 @@ languages:
   - Bengali
   - Urdu
 homeCountry: India
+socials:
+  linkedin: https://www.linkedin.com/in/arnav-biyani/
+  github: https://github.com/Arnav-Biyani
 experience:
   - title: Community Research Fellow
     organization: Davidson College Data Science Department
