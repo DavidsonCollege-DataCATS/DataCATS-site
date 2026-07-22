@@ -20,11 +20,11 @@ coursework:
     instructor: P Benbow
     term: Spring 2025
   - course: "MAT 105: Introduction to Statistics"
-    instructor: K Wang
+    instructor: K Yang
     term: Fall 2025
   - course: "CSC 221: Data Structures"
-    instructor: K Williams
-    term: Spring 2025
+    instructor: T Lim
+    term: Spring 2026
 languages:
   - English
 homeCountry: United States
